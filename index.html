@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q-S AI-Generated Content Law and Policy Hub</title>
+<style>
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --ink: #182230;
+  --muted: #5f6b7a;
+  --line: #d7deea;
+  --accent: #214e9b;
+  --accent-soft: #e9f0ff;
+  --warn: #8a3b12;
+  --warn-soft: #fff0e8;
+  --good: #0f5e46;
+  --good-soft: #e9f7f1;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 28px;
+}
+.hero {
+  background: linear-gradient(135deg, #0d1c3d 0%, #214e9b 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 16px 36px rgba(14, 28, 61, 0.18);
+}
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 1.15;
+}
+.hero p {
+  max-width: 960px;
+  margin: 0 0 12px;
+  color: rgba(255,255,255,0.94);
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.meta span {
+  display: inline-block;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  font-size: 13px;
+}
+.jump {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+.jump a {
+  display: block;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 14px;
+}
+.section {
+  margin-top: 26px;
+}
+.section h2 {
+  margin: 0 0 12px;
+  font-size: 26px;
+}
+.section h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+.lead {
+  color: var(--muted);
+  max-width: 1020px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(24, 34, 48, 0.06);
+}
+.card h3, .card h4 {
+  margin-top: 0;
+}
+.count {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.badge.blue { background: var(--accent-soft); color: var(--accent); }
+.badge.gold { background: #fff5db; color: #795600; }
+.badge.green { background: var(--good-soft); color: var(--good); }
+.badge.orange { background: var(--warn-soft); color: var(--warn); }
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.note {
+  background: #fffaf0;
+  border-left: 4px solid #e2a93b;
+  padding: 14px 16px;
+  border-radius: 10px;
+}
+.list-tight {
+  margin: 0;
+  padding-left: 20px;
+}
+.list-tight li { margin: 0 0 8px; }
+.columns-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+th {
+  position: sticky;
+  top: 0;
+  background: #eef3fb;
+  color: #102341;
+  z-index: 1;
+}
+tr:nth-child(even) td {
+  background: #fbfcff;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+summary::-webkit-details-marker { display: none; }
+details {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+details[open] {
+  box-shadow: 0 8px 20px rgba(24, 34, 48, 0.06);
+}
+details > div {
+  margin-top: 14px;
+}
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer {
+  margin: 30px 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <div class="kicker" style="color: rgba(255,255,255,0.78);">Q-S internal reference page</div>
+    <h1>AI-Generated Content Law and Policy Hub</h1>
+    <p>This page brings the attached workbooks into one structured reference for Q-S. It is designed for people who need to learn the topic quickly, understand what is live now, see what is still moving, and know where each issue should be routed internally.</p>
+    <p>The source set behind this page includes enacted-law registers, federal and state trackers, commercial-versus-political classification work, and an update memo that explains what changed from the earlier April framing.</p>
+    <div class="meta">
+      <!-- <span>Owner: Chief Innovation &amp; AI Office</span> -->
+      <span>Last updated: May 20, 2026</span>
+      <span>Status: Working internal reference</span>
+      <span>Scope: U.S. advertising, media, publishing, production, voice, likeness, synthetic media</span>
+    </div>
+    <div class="jump">
+      <a href="#start-here">Start here</a>
+      <a href="#live-now">What is live now</a>
+      <a href="#federal">Federal watchlist</a>
+      <a href="#state">State watchlist</a>
+      <a href="#classification">Commercial vs political</a>
+      <a href="#changes">What changed</a>
+      <a href="#routing">Q-S routing</a>
+      <a href="#library">Reference library</a>
+    </div>
+  </section>
+
+  <section class="section" id="start-here">
+    <h2>Start here</h2>
+    <p class="lead">The attached research supports one core conclusion. This is not one blended AI-disclosure topic. Q-S should treat the landscape as separate compliance lanes, because the business owner, approval path, and required control change depending on the issue.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="badge blue">Lane 1</span>
+        <h3>Commercial advertising and deception</h3>
+        <p>This covers misleading synthetic claims, fake endorsements, fabricated demos, cloned spokesperson risk, and some call-based voice use.</p>
+      </div>
+      <div class="card">
+        <span class="badge blue">Lane 2</span>
+        <h3>Rights, consent, and talent</h3>
+        <p>This covers digital replicas, voice cloning, performer contracts, deceased personalities, publicity rights, and model-related constraints.</p>
+      </div>
+      <div class="card">
+        <span class="badge blue">Lane 3</span>
+        <h3>Provider, platform, and provenance obligations</h3>
+        <p>This covers tool-side duties, moderation workflows, provenance handling, platform removal processes, and vendor review.</p>
+      </div>
+      <div class="card">
+        <span class="badge blue">Lane 4</span>
+        <h3>Election and political synthetic media</h3>
+        <p>This covers campaign communications, candidate misrepresentation, political disclosures, and issue-adjacent publisher risk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Current snapshot</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="count">13</div>
+        <div class="kicker">Enacted statutes and official actions</div>
+        <p>Current live baseline assembled from the enacted-law workbooks.</p>
+      </div>
+      <div class="card">
+        <div class="count">6</div>
+        <div class="kicker">Federal proposals and rulemaking items</div>
+        <p>Items that could materially change Q-S review, tool selection, rights handling, or platform risk.</p>
+      </div>
+      <div class="card">
+        <div class="count">8</div>
+        <div class="kicker">Tracked state proposals</div>
+        <p>Pending state items with commercial, platform, or election relevance.</p>
+      </div>
+      <div class="card">
+        <div class="count">9</div>
+        <div class="kicker">Substantive comparison points</div>
+        <p>Key places where the current position differs from the earlier April framing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="live-now">
+    <h2>What is live now</h2>
+    <p class="lead">The enacted-law materials show that Q-S already has a real operating baseline. The list below includes the current items most likely to affect commercial work, rights handling, platform operations, or market-specific review.</p>
+    <div class="columns-2">
+      <div class="card">
+          <div class="kicker">United States</div>
+          <h3>FTC Act, unfair or deceptive acts and practices authority</h3>
+          <p><strong>Effective:</strong> In force</p>
+          <p>Treat this as the default federal backstop. AI use does not reduce the underlying truth-in-advertising burden.</p>
+        </div><div class="card">
+          <div class="kicker">United States</div>
+          <h3>TAKE IT DOWN Act, platform removal duties</h3>
+          <p><strong>Effective:</strong> May 19, 2026 for FTC-enforced Section 3</p>
+          <p>Not an ordinary ad-review law, but it matters for platform governance, moderation, crisis response, and publisher-side synthetic content handling.</p>
+        </div><div class="card">
+          <div class="kicker">California</div>
+          <h3>California AI Transparency Act</h3>
+          <p><strong>Effective:</strong> Jan. 1, 2026</p>
+          <p>Vendor review should test whether tools meet SB 942 obligations. This is primarily a tool-governance and provenance issue, not a blanket creative-labeling law.</p>
+        </div><div class="card">
+          <div class="kicker">California</div>
+          <h3>Digital replica contract protections for living performers</h3>
+          <p><strong>Effective:</strong> Jan. 1, 2025</p>
+          <p>Business affairs should treat digital-replica language as a special clause set, not boilerplate.</p>
+        </div><div class="card">
+          <div class="kicker">California</div>
+          <h3>Deceased personality digital replica protections</h3>
+          <p><strong>Effective:</strong> Jan. 1, 2025</p>
+          <p>Any campaign using a deceased celebrity, narrator, or recognizable persona should be cleared through rights review before production or distribution.</p>
+        </div><div class="card">
+          <div class="kicker">New York</div>
+          <h3>Synthetic performer disclosure law</h3>
+          <p><strong>Effective:</strong> 180 days after becoming law, effective June 2026</p>
+          <p>This is the clearest current state ad-disclosure rule for synthetic performers. Creative review and trafficking should know when New York-facing ads trigger it.</p>
+        </div>
+    </div>
+    <details open>
+      <summary>View full enacted-law table</summary>
+      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>Jurisdiction</th><th>Law or action name</th><th>Effective date</th><th>Practical business implication</th></tr></thead><tbody><tr><td>United States</td><td>FTC Act, unfair or deceptive acts and practices authority</td><td>In force</td><td>Treat this as the default federal backstop. AI use does not reduce the underlying truth-in-advertising burden.</td></tr><tr><td>United States</td><td>TAKE IT DOWN Act, platform removal duties</td><td>May 19, 2026 for FTC-enforced Section 3</td><td>Not an ordinary ad-review law, but it matters for platform governance, moderation, crisis response, and publisher-side synthetic content handling.</td></tr><tr><td>California</td><td>California AI Transparency Act</td><td>Jan. 1, 2026</td><td>Vendor review should test whether tools meet SB 942 obligations. This is primarily a tool-governance and provenance issue, not a blanket creative-labeling law.</td></tr><tr><td>California</td><td>Digital replica contract protections for living performers</td><td>Jan. 1, 2025</td><td>Business affairs should treat digital-replica language as a special clause set, not boilerplate.</td></tr><tr><td>California</td><td>Deceased personality digital replica protections</td><td>Jan. 1, 2025</td><td>Any campaign using a deceased celebrity, narrator, or recognizable persona should be cleared through rights review before production or distribution.</td></tr><tr><td>New York</td><td>Synthetic performer disclosure law</td><td>180 days after becoming law, effective June 2026</td><td>This is the clearest current state ad-disclosure rule for synthetic performers. Creative review and trafficking should know when New York-facing ads trigger it.</td></tr><tr><td>New York</td><td>Post-mortem publicity and digital replica amendments</td><td>Effective immediately</td><td>Any use of a deceased person’s recreated or materially altered voice or likeness for commercial purposes should be rights-cleared under New York’s updated statute.</td></tr><tr><td>New York</td><td>Digital replica clauses in contracts</td><td>Jan. 1, 2025 for contracts entered into or modified on or after that date</td><td>New York now has a business-affairs checkpoint that closely parallels California’s living-performer rule.</td></tr><tr><td>New York</td><td>New York State Fashion Workers Act</td><td>June 19, 2025</td><td>Important for brands and agencies using models in New York. The AI issue here is embedded in talent consent and replica control, not public disclosure.</td></tr><tr><td>Tennessee</td><td>Ensuring Likeness, Voice, and Image Security Act of 2024, ELVIS Act</td><td>July 1, 2024</td><td>Tennessee is a key state for voice-clone risk. Audio creative, celebrity simulation, and synthetic spokesperson work should route through rights clearance.</td></tr><tr><td>Washington</td><td>Synthetic media in electioneering communications</td><td>Jan. 1, 2026</td><td>Ordinary brand advertising is not the main target, but publishers and ad platforms taking political or issue advocacy inventory in Washington should treat this as a trafficking and review rule.</td></tr><tr><td>Minnesota</td><td>Deep fake media to influence an election</td><td>Aug. 1, 2023</td><td>Narrow election law, but it matters for publisher and platform review of political inventory in Minnesota.</td></tr><tr><td>Minnesota</td><td>Nonconsensual dissemination of deep fake sexual images</td><td>Effective</td><td>Important adjacent-risk rule for any media company or platform that hosts user uploads or creator content.</td></tr></tbody></table></div></div>
+    </details>
+  </section>
+
+  <section class="section" id="federal">
+    <h2>Federal watchlist</h2>
+    <p class="lead">These items are not the current commercial baseline, but they deserve active monitoring because they could change how Q-S handles voice, likeness, provenance, takedown processes, and platform exposure.</p>
+    <div class="columns-2">
+      <div class="card">
+          <span class="badge orange">Federal watch</span>
+          <h3>NO FAKES Act of 2025</h3>
+          <p><strong>Status:</strong> Active. Reintroduced in the 119th Congress and referred to Judiciary. The Senate Judiciary IP Subcommittee held a hearing that featured the bill in May 2025.</p>
+          <p><strong>Why it matters:</strong> Very high relevance. This is the clearest federal proposal that could reshape celebrity simulation, synthetic spokespeople, AI voiceovers, branded content using recreated people, and platform hosting of replica content.</p>
+          <p><strong>Monitor:</strong> Committee movement, markup, any changes to platform safe harbors, and whether the House and Senate versions stay aligned on remedies and service-provider obligations</p>
+        </div><div class="card">
+          <span class="badge orange">Federal watch</span>
+          <h3>COPIED Act of 2025</h3>
+          <p><strong>Status:</strong> Active. Introduced and referred to the Senate Commerce Committee.</p>
+          <p><strong>Why it matters:</strong> Very high relevance for publishers, media companies, agencies, and platforms because it pushes toward federal provenance, content-authentication, and watermark-adjacent infrastructure for synthetic or synthetically modified content.</p>
+          <p><strong>Monitor:</strong> Commerce Committee action, any narrowing of the covered-tools definition, private-right-of-action treatment, and how FTC or state AG enforcement would be structured in final text</p>
+        </div><div class="card">
+          <span class="badge orange">Federal watch</span>
+          <h3>TRAIN Act, House version</h3>
+          <p><strong>Status:</strong> Active House bill. Introduced and referred to House Judiciary. Sponsor materials also describe a Senate reintroduction, although the Senate bill number did not surface in the primary sponsor materials reviewed for the original table.</p>
+          <p><strong>Why it matters:</strong> High relevance for agencies, publishers, studios, and media companies because it could increase discovery pressure on model vendors, change diligence expectations, and alter enterprise contracting around training-data provenance.</p>
+          <p><strong>Monitor:</strong> House Judiciary activity, confirmation of the current Senate companion number, and whether the bill grows from a discovery mechanism into broader training-data disclosure requirements</p>
+        </div>
+    </div>
+    <details>
+      <summary>View full federal tracker</summary>
+      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>Name</th><th>Current status</th><th>What it would do</th><th>Likely relevance to commercial advertising or media</th><th>What to monitor next</th></tr></thead><tbody><tr><td>NO FAKES Act of 2025</td><td>Active. Reintroduced in the 119th Congress and referred to Judiciary. The Senate Judiciary IP Subcommittee held a hearing that featured the bill in May 2025.</td><td>Would create a federal cause of action against unauthorized digital replicas of a person’s voice or visual likeness, with takedown-style remedies and liability rules for creation and distribution.</td><td>Very high relevance. This is the clearest federal proposal that could reshape celebrity simulation, synthetic spokespeople, AI voiceovers, branded content using recreated people, and platform hosting of replica content.</td><td>Committee movement, markup, any changes to platform safe harbors, and whether the House and Senate versions stay aligned on remedies and service-provider obligations</td></tr><tr><td>COPIED Act of 2025</td><td>Active. Introduced and referred to the Senate Commerce Committee.</td><td>Would direct NIST-driven provenance and authenticity standards, require covered AI tools to let users attach provenance information, and prohibit tampering with or removing that information in covered settings.</td><td>Very high relevance for publishers, media companies, agencies, and platforms because it pushes toward federal provenance, content-authentication, and watermark-adjacent infrastructure for synthetic or synthetically modified content.</td><td>Commerce Committee action, any narrowing of the covered-tools definition, private-right-of-action treatment, and how FTC or state AG enforcement would be structured in final text</td></tr><tr><td>TRAIN Act, House version</td><td>Active House bill. Introduced and referred to House Judiciary. Sponsor materials also describe a Senate reintroduction, although the Senate bill number did not surface in the primary sponsor materials reviewed for the original table.</td><td>Would help copyright owners use an administrative subpoena process to determine whether their works were used to train generative AI without permission.</td><td>High relevance for agencies, publishers, studios, and media companies because it could increase discovery pressure on model vendors, change diligence expectations, and alter enterprise contracting around training-data provenance.</td><td>House Judiciary activity, confirmation of the current Senate companion number, and whether the bill grows from a discovery mechanism into broader training-data disclosure requirements</td></tr><tr><td>DEFIANCE Act of 2025</td><td>Active and more advanced than most. The Senate passed S. 1837 by unanimous consent. The House companion remains pending.</td><td>Would create a federal civil claim for victims of nonconsensual sexually explicit digital forgeries and related distribution.</td><td>Moderate direct ad relevance, but strong adjacent relevance for publishers, platforms, creator networks, talent-sensitive productions, and brand safety teams. It is not a general ad disclosure bill.</td><td>House movement, scope of distributor liability, and whether any service-provider defenses or carveouts change</td></tr><tr><td>FTC proposed amendment to the Impersonation Rule to cover individuals</td><td>Pending rulemaking. The FTC proposed expanding the current government-and-business impersonation rule so it would also prohibit impersonation of individuals. The FTC held an informal hearing in January 2025. No final amendment surfaced in the primary sources reviewed for the original table.</td><td>Would make it easier for the FTC to pursue deceptive AI impersonation of real people, including cloned voices, simulated endorsements, fake personal outreach, and similar conduct.</td><td>Very high relevance for ads, synthetic testimonials, influencer simulations, celebrity lookalikes, fake spokesperson campaigns, and platform moderation.</td><td>Whether the FTC finalizes the rule, how broadly it defines impersonation of an individual, and whether it includes meaningful exceptions for parody, satire, or expressive use</td></tr><tr><td>TRUMP AMERICA AI Act discussion draft</td><td>Meaningful federal proposal, but not yet a live numbered bill in the primary sources reviewed for the original table.</td><td>Discussion draft for a broad federal AI package that would address training-data rights, digital replicas, provenance and watermarking, FTC and state AG enforcement, and platform or developer responsibility.</td><td>Potentially very high relevance because it tries to combine creator-rights, provenance, and platform-accountability concepts in one package. It could materially affect agencies, publishers, production teams, AI vendors, and platforms if it becomes a real bill and starts moving.</td><td>Whether it becomes a numbered bill, which sections survive in introduced text, and whether Congress treats it as an omnibus package or mines it for narrower pieces such as replica, provenance, or training-data provisions</td></tr></tbody></table></div></div>
+    </details>
+  </section>
+
+  <section class="section" id="state">
+    <h2>State proposal watchlist</h2>
+    <p class="lead">The state tracker includes both commercially relevant proposals and election-led proposals that business teams can easily overread. The point is not just to list bills. It is to separate where direct ad risk exists from where platform or political review matters more.</p>
+    <div class="columns-2">
+      <div class="card">
+          <span class="badge gold">California</span>
+          <h3>SB 1146</h3>
+          <p><strong>Status:</strong> Active, amended in Senate</p>
+          <p><strong>Relevance:</strong> Direct commercial advertising relevance, but narrow by subject matter. Focused on health-related consumer advertising, not all ads.</p>
+          <p>Disclosure rules for visual and audio formats, consent issues for digital replicas, health-ad review updates, and trafficking checks for California-targeted health ads.</p>
+        </div><div class="card">
+          <span class="badge gold">Florida</span>
+          <h3>CS/SB 482</h3>
+          <p><strong>Status:</strong> Died in Messages after Senate passage</p>
+          <p><strong>Relevance:</strong> Direct and indirect commercial relevance. It would have affected chatbot use, synthetic-likeness marketing, and some AI governance practices.</p>
+          <p>Consent requirements for generative-AI-created likenesses, chatbot disclosure practices, privacy and biometric-data workflow changes.</p>
+        </div><div class="card">
+          <span class="badge gold">Massachusetts</span>
+          <h3>S.2631 (new draft of S.44)</h3>
+          <p><strong>Status:</strong> Referred to Senate Ways and Means</p>
+          <p><strong>Relevance:</strong> Political only, with spillover to publisher and platform review for political inventory.</p>
+          <p>Political-ad screening, escalation procedures for deceptive synthetic election content, standards for issue and advocacy media review.</p>
+        </div><div class="card">
+          <span class="badge gold">New Jersey</span>
+          <h3>A4163</h3>
+          <p><strong>Status:</strong> Introduced and referred to Assembly State and Local Government Committee</p>
+          <p><strong>Relevance:</strong> Political only. Matters mainly for campaign inventory, publisher risk, and election-related media review.</p>
+          <p>Political-ad intake rules, disclosure or authenticity review, escalation for candidate complaint risk.</p>
+        </div>
+    </div>
+    <details>
+      <summary>View full state tracker</summary>
+      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>State</th><th>Bill number</th><th>Current status</th><th>Summary of proposal</th><th>Ad/media relevance</th><th>Operational changes if enacted</th></tr></thead><tbody><tr><td>California</td><td>SB 1146</td><td>Active, amended in Senate</td><td>Would require clear and conspicuous disclosure when an ad for a health-related consumer product or service uses a digital replica or synthetic performer depicted as a health care provider. It would authorize enforcement by the Attorney General, district attorneys, and in some cases the natural person whose digital replica is used.</td><td>Direct commercial advertising relevance, but narrow by subject matter. Focused on health-related consumer advertising, not all ads.</td><td>Disclosure rules for visual and audio formats, consent issues for digital replicas, health-ad review updates, and trafficking checks for California-targeted health ads.</td></tr><tr><td>Florida</td><td>CS/SB 482</td><td>Died in Messages after Senate passage</td><td>Broad AI bill that included bot-interaction notice concepts and would have prohibited public use for trade, commercial, or advertising purposes of a name, portrait, photograph, image, or other likeness created through generative AI without consent.</td><td>Direct and indirect commercial relevance. It would have affected chatbot use, synthetic-likeness marketing, and some AI governance practices.</td><td>Consent requirements for generative-AI-created likenesses, chatbot disclosure practices, privacy and biometric-data workflow changes.</td></tr><tr><td>Massachusetts</td><td>S.2631 (new draft of S.44)</td><td>Referred to Senate Ways and Means</td><td>Election-focused proposal targeting materially deceptive election-related communications, including synthetic media.</td><td>Political only, with spillover to publisher and platform review for political inventory.</td><td>Political-ad screening, escalation procedures for deceptive synthetic election content, standards for issue and advocacy media review.</td></tr><tr><td>New Jersey</td><td>A4163</td><td>Introduced and referred to Assembly State and Local Government Committee</td><td>Would create civil penalties for campaign ads containing deepfake misrepresentations of candidates.</td><td>Political only. Matters mainly for campaign inventory, publisher risk, and election-related media review.</td><td>Political-ad intake rules, disclosure or authenticity review, escalation for candidate complaint risk.</td></tr><tr><td>New Jersey</td><td>S2129</td><td>Introduced in Senate and referred to committee</td><td>Would prohibit disclosure or distribution of certain intentionally deceptive audio or visual media within 90 days of an election and impose criminal penalties.</td><td>Political only. It is not a general commercial advertising rule.</td><td>Political-content review, election blackout-period checks, complaint response planning.</td></tr><tr><td>Oklahoma</td><td>SB 894</td><td>Pending, placed on General Order after committee action</td><td>Would prohibit distribution of deceptive synthetic media about candidates within 90 days of an election unless it carries a specified disclosure. Includes injunctive relief, damages, and election-board civil penalties, along with carve-outs for news and parody.</td><td>Political only, though publisher and platform risk is real because of the disclosure-safe-harbor structure.</td><td>Disclosure text requirements for visual, audio, and video media in campaign contexts, complaint escalation, election-specific trafficking rules.</td></tr><tr><td>West Virginia</td><td>HB 4496</td><td>Pending in House Judiciary</td><td>Broad proposal that would require a clear and conspicuous disclosure on any AI-generated media a covered entity creates, distributes, publishes, or transmits. It also contemplates platform obligations, preservation of disclosures, and automated detection when feasible.</td><td>Direct commercial and media relevance. One of the broadest pending bills in the group.</td><td>Labeling and watermarking workflows, publisher intake changes, platform-preservation duties, possible automated detection requirements, broad content-governance changes.</td></tr><tr><td>West Virginia</td><td>SB 454</td><td>Pending in Senate Judiciary</td><td>Would prohibit nonconsensual intimate deepfake distribution and create criminal and civil consequences. It is not an ordinary ad law, but it creates adjacent publisher, platform, and brand-safety risk.</td><td>Indirect commercial relevance. Mostly a trust-and-safety and platform-risk bill.</td><td>Removal and escalation procedures for deepfake sexual content, moderation policies, records retention, complaint handling.</td></tr></tbody></table></div></div>
+    </details>
+  </section>
+
+  <section class="section" id="classification">
+    <h2>Commercial versus political classification</h2>
+    <p class="lead">This section pulls together the classification work. It helps teams avoid a common error, treating an election bill, a provider-side law, or a platform rule as if it were a general consumer advertising statute.</p>
+    <div class="note">
+      <strong>Important:</strong> The strongest current advertiser-facing state signal in the attached research is New York’s synthetic performer disclosure law. California SB 942 matters, but the attached update memo correctly narrows it toward provider-side and tool-governance obligations.
+    </div>
+    <div class="columns-2" style="margin-top: 16px;">
+      <div class="card">
+          <div class="kicker">Direct commercial advertising relevance</div>
+          <h3>FTC Act Section 5, unfair or deceptive acts or practices</h3>
+          <p><strong>Where teams could overread it:</strong> Teams sometimes treat Section 5 as if it creates an AI-specific label rule. It does not. The problem is deception, not AI use by itself.</p>
+          <p><strong>Why teams should still care:</strong> Brand, agency, and publisher teams still need it because any synthetic content that changes the truthfulness of a commercial claim can trigger FTC exposure.</p>
+        </div><div class="card">
+          <div class="kicker">Direct commercial advertising relevance</div>
+          <h3>FTC Rule on Impersonation of Government and Businesses, 16 C.F.R. Part 461</h3>
+          <p><strong>Where teams could overread it:</strong> Teams may overread it as a broad ban on all AI avatars or branded bots. It targets false impersonation, not every synthetic interface.</p>
+          <p><strong>Why teams should still care:</strong> Platforms and publishers should still care because ads or messages that imply false affiliation with a company can create enforcement and inventory-review risk.</p>
+        </div><div class="card">
+          <div class="kicker">Direct commercial advertising relevance</div>
+          <h3>FTC proposed amendment adding impersonation of individuals</h3>
+          <p><strong>Where teams could overread it:</strong> Teams could overread it as banning all fictional AI characters. The proposal is about impersonating an individual, not about clearly fictional or disclosed synthetic figures.</p>
+          <p><strong>Why teams should still care:</strong> Even before finalization, publisher and brand review teams should care because it signals the FTC’s likely next enforcement direction on human impersonation in ads and media.</p>
+        </div><div class="card">
+          <div class="kicker">Direct commercial advertising relevance</div>
+          <h3>FCC Declaratory Ruling that AI-generated voices are covered by TCPA restrictions</h3>
+          <p><strong>Where teams could overread it:</strong> Teams may overread it as covering all synthetic audio in all media. It is about calls governed by the TCPA, not every video, ad, or podcast use of AI voice.</p>
+          <p><strong>Why teams should still care:</strong> Brands, agencies, and vendors should still care because call campaigns are a real commercial channel, and synthetic voice does not escape consent requirements.</p>
+        </div><div class="card">
+          <div class="kicker">Direct commercial advertising relevance</div>
+          <h3>New York GBL § 396-b, synthetic performer ad disclosure law</h3>
+          <p><strong>Where teams could overread it:</strong> Teams can overread it as applying to all AI-generated content or all manipulated media. It is narrower and turns on the defined synthetic performer concept plus statutory exemptions.</p>
+          <p><strong>Why teams should still care:</strong> Publishers and distributors should care because ad acceptance, trafficking, and market-targeting review for New York-facing campaigns may need a disclosure checkpoint.</p>
+        </div><div class="card">
+          <div class="kicker">Direct commercial advertising relevance</div>
+          <h3>California AB 2602, digital replica contract law for living performers</h3>
+          <p><strong>Where teams could overread it:</strong> Teams often overread it as a general ban on AI performers. It is really a contract-validity and consent-specificity rule for covered performer relationships.</p>
+          <p><strong>Why teams should still care:</strong> Business affairs, production, and brand teams should care because an ad or branded-content campaign can fail at the contract layer long before it becomes a disclosure issue.</p>
+        </div>
+    </div>
+    <details>
+      <summary>View full classification table</summary>
+      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Classification</th><th>Where teams could overread it</th><th>Why teams should still care</th></tr></thead><tbody><tr><td>FTC Act Section 5, unfair or deceptive acts or practices</td><td>Direct commercial advertising relevance</td><td>Teams sometimes treat Section 5 as if it creates an AI-specific label rule. It does not. The problem is deception, not AI use by itself.</td><td>Brand, agency, and publisher teams still need it because any synthetic content that changes the truthfulness of a commercial claim can trigger FTC exposure.</td></tr><tr><td>FTC Rule on Impersonation of Government and Businesses, 16 C.F.R. Part 461</td><td>Direct commercial advertising relevance</td><td>Teams may overread it as a broad ban on all AI avatars or branded bots. It targets false impersonation, not every synthetic interface.</td><td>Platforms and publishers should still care because ads or messages that imply false affiliation with a company can create enforcement and inventory-review risk.</td></tr><tr><td>FTC proposed amendment adding impersonation of individuals</td><td>Direct commercial advertising relevance</td><td>Teams could overread it as banning all fictional AI characters. The proposal is about impersonating an individual, not about clearly fictional or disclosed synthetic figures.</td><td>Even before finalization, publisher and brand review teams should care because it signals the FTC’s likely next enforcement direction on human impersonation in ads and media.</td></tr><tr><td>FCC Declaratory Ruling that AI-generated voices are covered by TCPA restrictions</td><td>Direct commercial advertising relevance</td><td>Teams may overread it as covering all synthetic audio in all media. It is about calls governed by the TCPA, not every video, ad, or podcast use of AI voice.</td><td>Brands, agencies, and vendors should still care because call campaigns are a real commercial channel, and synthetic voice does not escape consent requirements.</td></tr><tr><td>New York GBL § 396-b, synthetic performer ad disclosure law</td><td>Direct commercial advertising relevance</td><td>Teams can overread it as applying to all AI-generated content or all manipulated media. It is narrower and turns on the defined synthetic performer concept plus statutory exemptions.</td><td>Publishers and distributors should care because ad acceptance, trafficking, and market-targeting review for New York-facing campaigns may need a disclosure checkpoint.</td></tr><tr><td>California AB 2602, digital replica contract law for living performers</td><td>Direct commercial advertising relevance</td><td>Teams often overread it as a general ban on AI performers. It is really a contract-validity and consent-specificity rule for covered performer relationships.</td><td>Business affairs, production, and brand teams should care because an ad or branded-content campaign can fail at the contract layer long before it becomes a disclosure issue.</td></tr><tr><td>California AB 1836, deceased personality digital replica law</td><td>Direct commercial advertising relevance</td><td>Teams may overread it as banning all historical re-creations. It is narrower and rights-based, with exemptions and context limits.</td><td>Brand, studio, and distributor teams should care because any use of a deceased celebrity, narrator, or recognizable persona can raise clearance risk even if no ad-disclosure law is triggered.</td></tr><tr><td>Tennessee ELVIS Act, Public Chapter 588</td><td>Direct commercial advertising relevance</td><td>Teams can overread it as a broad AI-content statute. It is better understood as a voice and likeness rights law.</td><td>Publisher, audio, music, production, and brand review teams should care because a voice clone can create rights risk even without deceptive ad claims.</td></tr><tr><td>California SB 942, AI Transparency Act</td><td>Indirect commercial or platform relevance</td><td>This is one of the easiest laws to overread. Teams often assume it means every advertiser must label every AI asset in California. That is not what the statute principally does.</td><td>Media, platform, AI-governance, and vendor-review teams should care because it affects which tools are compliant, how provenance is handled, and what metadata or disclosure options are available downstream.</td></tr><tr><td>TAKE IT DOWN Act, FTC-enforced platform removal process</td><td>Indirect commercial or platform relevance</td><td>Teams could overread it as a broad deepfake law for all synthetic content. It is much narrower and focuses on covered intimate imagery and covered platforms.</td><td>Platforms, publishers, creator networks, and brands with hosted communities should care because moderation, complaint handling, and crisis response can still become a real operating issue.</td></tr><tr><td>NO FAKES Act of 2025, S.1367</td><td>Unclear or mixed relevance</td><td>Teams may overread it as just a celebrity-rights bill, or as a universal ban on synthetic people. It is neither.</td><td>Brand, publisher, platform, and distributor teams should care because it could reshape consent, takedown, service-provider exposure, and recordkeeping for commercial creative using human replicas.</td></tr><tr><td>COPIED Act of 2025, S.1396</td><td>Indirect commercial or platform relevance</td><td>Teams can overread it as a simple AI label law. It is more about provenance architecture and tampering with content-origin information.</td><td>Publishers, platforms, distributors, and agency operations teams should care because provenance standards can change intake, trafficking, and evidentiary workflows even when there is no direct ad-disclosure duty.</td></tr><tr><td>FEC interpretive rule on 52 U.S.C. § 30124, AI-assisted fraudulent misrepresentation</td><td>Election-only or political-only relevance</td><td>Teams often overread any FEC AI action as though it governs ordinary commercial advertising. It does not.</td><td>Publisher, platform, and distributor teams should still care if they accept political ads, advocacy placements, or election-related sponsored content.</td></tr><tr><td>Washington RCW 29B.35, electioneering communications using synthetic media</td><td>Election-only or political-only relevance</td><td>Teams may overread it as a general Washington law on synthetic media in all advertising. It is not.</td><td>Media owners, broadcasters, platforms, and distributors should still care because the statute includes disclosure mechanics and medium liability concepts in election contexts.</td></tr><tr><td>Massachusetts S.2631, election misinformation / deepfake proposal</td><td>Election-only or political-only relevance</td><td>Teams could overread deepfake bill headlines and assume a statewide rule for all AI ads. The bill is much narrower.</td><td>Publisher and platform teams should still care because election-content review, advocacy-media handling, and complaint escalation can still be affected.</td></tr><tr><td>New Jersey A4163, civil penalties for campaign ads with deepfake candidate misrepresentations</td><td>Election-only or political-only relevance</td><td>Teams could mistakenly treat it as a general ad-disclosure law for AI-generated content.</td><td>Political-ad sellers, public affairs teams, publishers, and platforms should still care because it affects campaign inventory and candidate complaint risk.</td></tr><tr><td>Oklahoma SB 894, deceptive synthetic media in elections proposal</td><td>Election-only or political-only relevance</td><td>Teams may overread it as a general Oklahoma disclosure rule for any AI-made ad.</td><td>Publisher, platform, and distributor teams should still care because election or issue-ad review often sits in the same workflow stack as ordinary media trafficking.</td></tr><tr><td>West Virginia HB 4496, broad AI-generated media disclosure proposal</td><td>Unclear or mixed relevance</td><td>Teams could overread it as definitely becoming a universal state label rule. It is still a proposal, and its breadth makes future narrowing likely.</td><td>Review teams should care because this is the kind of proposal that could materially alter ordinary creative labeling, platform handling, and preservation of disclosures if enacted.</td></tr></tbody></table></div></div>
+    </details>
+  </section>
+
+  <section class="section" id="changes">
+    <h2>What changed from the earlier April deck</h2>
+    <p class="lead">The comparison memo is useful because it shows how the current position is more precise. The biggest shift is structural. The legal landscape should not be presented as one small set of generic AI transparency laws.</p>
+    <div class="columns-2">
+      <div class="card">
+          <h3>Federal live commercial baseline</h3>
+          <p><strong>What changed:</strong> The legal baseline moved from general FTC risk to a current stack of federal authorities with dates, scope, and operational consequences.</p>
+          <p><strong>Why it matters:</strong> Shifts the work from abstract AI caution to concrete controls around claims review, testimonial practices, telemarketing voice use, and hosted-content response.</p>
+          <p><strong>Recommended treatment:</strong> Expand both the April deck and the May pack’s federal section.</p>
+        </div><div class="card">
+          <h3>California SB 942</h3>
+          <p><strong>What changed:</strong> The status date was wrong, and the regulated party was blurred.</p>
+          <p><strong>Why it matters:</strong> Control owner is often tool governance, procurement, platform operations, or vendor review, not the creative team alone.</p>
+          <p><strong>Recommended treatment:</strong> Correct the April deck. Keep and tighten the May pack language.</p>
+        </div><div class="card">
+          <h3>New York synthetic performer advertising law</h3>
+          <p><strong>What changed:</strong> Direction was right, but the current record is more concrete on signing date, effective date, and who is regulated.</p>
+          <p><strong>Why it matters:</strong> Creates a real NY-directed ad review checkpoint.</p>
+          <p><strong>Recommended treatment:</strong> Correct slightly and expand.</p>
+        </div><div class="card">
+          <h3>Living-person digital replica use and contract validity</h3>
+          <p><strong>What changed:</strong> Topic moved from a warning to a defined business-affairs checkpoint.</p>
+          <p><strong>Why it matters:</strong> Many AI-talent issues are not solved by disclosures. They are solved by contract language, consent scope, and internal business-affairs routing before the asset is even produced.</p>
+          <p><strong>Recommended treatment:</strong> Expand. The April deck should not treat this as a side note.</p>
+        </div>
+    </div>
+    <details>
+      <summary>View full comparison memo table</summary>
+      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>Topic</th><th>What changed</th><th>Why it matters</th><th>Recommended treatment</th></tr></thead><tbody><tr><td>Federal live commercial baseline</td><td>The legal baseline moved from general FTC risk to a current stack of federal authorities with dates, scope, and operational consequences.</td><td>Shifts the work from abstract AI caution to concrete controls around claims review, testimonial practices, telemarketing voice use, and hosted-content response.</td><td>Expand both the April deck and the May pack’s federal section.</td></tr><tr><td>California SB 942</td><td>The status date was wrong, and the regulated party was blurred.</td><td>Control owner is often tool governance, procurement, platform operations, or vendor review, not the creative team alone.</td><td>Correct the April deck. Keep and tighten the May pack language.</td></tr><tr><td>New York synthetic performer advertising law</td><td>Direction was right, but the current record is more concrete on signing date, effective date, and who is regulated.</td><td>Creates a real NY-directed ad review checkpoint.</td><td>Correct slightly and expand.</td></tr><tr><td>Living-person digital replica use and contract validity</td><td>Topic moved from a warning to a defined business-affairs checkpoint.</td><td>Many AI-talent issues are not solved by disclosures. They are solved by contract language, consent scope, and internal business-affairs routing before the asset is even produced.</td><td>Expand. The April deck should not treat this as a side note.</td></tr><tr><td>Deceased personalities, post-mortem rights, and voice cloning</td><td>Rights landscape is no longer only a California issue. Voice and post-mortem use now require a multi-state rights analysis.</td><td>Matters directly to branded content, audio spots, synthetic narrators, celebrity simulation, and revived-personality concepts.</td><td>Expand. The April deck should be corrected and widened.</td></tr><tr><td>Copyright and ownership</td><td>Older statement was directionally right, but incomplete.</td><td>Teams need to know when the real control is authorship documentation, training-data diligence, or contract terms, rather than assuming ownership exists because the invoice was paid.</td><td>Expand. Do not retire the earlier discussion, but anchor it to current Copyright Office materials.</td></tr><tr><td>Election synthetic media and political-content rules</td><td>Scope was overstated in the deck. Political laws were presented too close to ordinary brand-ad rules.</td><td>Publisher, platform, political-sales, and trafficking teams still need to care, but ordinary commercial brand teams should not assume every election deepfake law governs everyday campaigns.</td><td>Correct the April deck and its state-status slide. Expand the May pack’s election section into a separate political-content module.</td></tr><tr><td>Federal proposals and watchlist discipline</td><td>Change is not that the earlier watchlist was unreasonable. It now needs a verified-status column so proposals are not treated as equally current.</td><td>Executive stakeholders need to know which proposals require monthly monitoring now, and which ones need a fresh verification step before entering the operating watchlist.</td><td>Expand and tighten the May pack. Add a verified-status field and a not re-verified in this pass flag where needed.</td></tr><tr><td>Vendor diligence and approved-tool review</td><td>Checklist aged better than the legal-summary slides. What changed is the legal anchoring, not the checklist architecture.</td><td>Vendor process is the cleanest place to turn legal changes into operating controls without overburdening creative teams at the end of the workflow.</td><td>Keep and expand. Rewrite as a law-anchored control framework rather than a generic diligence checklist.</td></tr></tbody></table></div></div>
+    </details>
+  </section>
+
+  <section class="section" id="routing">
+    <h2>Q-S routing guide</h2>
+    <p class="lead">The page should help people do more than read. It should help them route the issue to the right owner.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Legal and compliance</h3>
+        <ul class="list-tight">
+          <li>Deceptive claims, fake endorsements, and synthetic spokesperson risk</li>
+          <li>New York synthetic performer disclosure triggers</li>
+          <li>Political-content review and market-specific escalation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Business affairs and talent</h3>
+        <ul class="list-tight">
+          <li>Digital replica contract language</li>
+          <li>Voice and likeness permissions</li>
+          <li>Deceased personality use and rights clearance</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Creative, production, and media</h3>
+        <ul class="list-tight">
+          <li>Campaign disclosure execution where required</li>
+          <li>Trafficking checks for New York-facing ads</li>
+          <li>Escalation when a concept uses synthetic performers or cloned voices</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Procurement and AI governance</h3>
+        <ul class="list-tight">
+          <li>Tool review against provider-side duties and provenance capabilities</li>
+          <li>Vendor diligence for training-data and rights claims</li>
+          <li>Platform and moderation workflows where Q-S owns the surface</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Recommended internal controls</h2>
+    <div class="columns-2">
+      <div class="card">
+        <h3>Immediate</h3>
+        <ul class="list-tight">
+          <li>Add a routing trigger for any work involving synthetic performers, cloned voices, digital replicas, or recreated deceased persons.</li>
+          <li>Separate political-content review from ordinary commercial review.</li>
+          <li>Add New York synthetic performer checks to trafficking and market-targeting review.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Near-term</h3>
+        <ul class="list-tight">
+          <li>Build a clause library for living-person and deceased-person digital replica use.</li>
+          <li>Create a short decision tree that routes work by use case rather than by a generic AI label.</li>
+          <li>Refresh this page when an item crosses into enactment, final rulemaking, or meaningful committee movement.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="library">
+    <h2>Reference library</h2>
+    <p class="lead">Place this page and the supporting workbooks in the same SharePoint folder or library so users can open the source files directly from one place.</p>
+    <div class="card">
+      <h3>Supporting files</h3>
+      <ul class="list-tight">
+        <li><a href="classification_framework_commercial_vs_political%281%29.xlsx">classification_framework_commercial_vs_political</a></li><li><a href="classification_framework_matrix%281%29.xlsx">classification_framework_matrix</a></li><li><a href="current_status_of_legislation_april_2026_deck.xlsx">current_status_of_legislation_april_2026_deck</a></li><li><a href="enacted_statutes_and_signed_laws%20copy.xlsx">enacted_statutes_and_signed_laws</a></li><li><a href="enacted_statutes_and_signed_laws%281%29.xlsx">enacted_statutes_and_signed_laws</a></li><li><a href="federal_legislative_regulatory_tracker%281%29.xlsx">federal_legislative_regulatory_tracker</a></li><li><a href="master_register_enacted_statutes_and_signed_laws%281%29.xlsx">master_register_enacted_statutes_and_signed_laws</a></li><li><a href="state_pending_bill_tracker%281%29.xlsx">state_pending_bill_tracker</a></li>
+      </ul>
+      
+    </div>
+  </section>
+
+  <p class="footer">Prepared from the attached workbook set. This page is an internal operating reference for Q-S and should be maintained as the legal landscape evolves.</p>
+</div>
+</body>
+</html>
