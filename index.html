@@ -214,6 +214,30 @@ details > div {
 </style>
 </head>
 <body>
+
+<!-- Password overlay -->
+<div id="gate">
+  <div id="gate-card">
+    <div id="gate-logo">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="38" rx="10" fill="rgba(255,255,255,0.12)"/>
+        <path d="M19 8C15.13 8 12 11.13 12 15v2H10v13h18V17h-2v-2c0-3.87-3.13-7-7-7zm0 2.5c2.48 0 4.5 2.02 4.5 4.5v2h-9v-2c0-2.48 2.02-4.5 4.5-4.5zm0 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="white"/>
+      </svg>
+    </div>
+    <div id="gate-brand">Q-S Internal</div>
+    <h2 id="gate-title">Access Required</h2>
+    <p id="gate-subtitle">This page contains internal guidance.<br>Enter the access code to continue.</p>
+    <div id="gate-input-wrap">
+      <input id="gate-input" type="password" placeholder="Enter access code" autocomplete="current-password" />
+      <button id="gate-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M10 4l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div id="gate-error">Incorrect code — try again</div>
+  </div>
+</div>
+
+<div id="page-wrap" class="page-blurred">
 <div class="page">
   <section class="hero">
     <div class="kicker" style="color: rgba(255,255,255,0.78);">Q-S internal reference page</div>
@@ -517,5 +541,185 @@ details > div {
 
   <p class="footer">This is Q-S's current guidance on AI-generated content law and policy. It is maintained and updated as the legal landscape evolves.</p>
 </div>
+</div><!-- /page-wrap -->
+
+<style>
+/* ── Gate overlay ── */
+#gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 28, 61, 0.55);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+#gate.unlocking {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+#gate-card {
+  background: linear-gradient(160deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 100%);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 20px;
+  padding: 44px 40px 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06) inset;
+  animation: gate-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes gate-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+#gate-logo {
+  display: inline-flex;
+  margin-bottom: 12px;
+}
+#gate-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+}
+#gate-title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+#gate-subtitle {
+  margin: 0 0 28px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.6;
+}
+#gate-input-wrap {
+  display: flex;
+  gap: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#gate-input-wrap:focus-within {
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.1);
+}
+#gate-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+}
+#gate-input::placeholder { color: rgba(255,255,255,0.35); }
+#gate-btn {
+  border: none;
+  background: rgba(255,255,255,0.15);
+  padding: 0 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+#gate-btn:hover { background: rgba(255,255,255,0.28); }
+#gate-error {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #ff8a80;
+  opacity: 0;
+  transition: opacity 0.25s;
+  height: 18px;
+}
+#gate-error.visible { opacity: 1; }
+#gate-input-wrap.shake {
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border-color: rgba(255, 120, 100, 0.7) !important;
+}
+@keyframes shake {
+  10%, 90% { transform: translateX(-3px); }
+  20%, 80% { transform: translateX( 4px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX( 5px); }
+}
+/* ── Page blur ── */
+.page-blurred {
+  filter: blur(8px);
+  transform: scale(1.01);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+.page-blurred.unlocked {
+  filter: none;
+  transform: scale(1);
+  pointer-events: auto;
+  user-select: auto;
+}
+</style>
+
+<script>
+(function () {
+  var PASSWORD = "qs2026";
+  var KEY = "qs_gate_ok";
+
+  var gate     = document.getElementById("gate");
+  var wrap     = document.getElementById("page-wrap");
+  var input    = document.getElementById("gate-input");
+  var btn      = document.getElementById("gate-btn");
+  var errEl    = document.getElementById("gate-error");
+  var inputWrap = document.getElementById("gate-input-wrap");
+
+  function unlock() {
+    gate.classList.add("unlocking");
+    wrap.classList.add("unlocked");
+    sessionStorage.setItem(KEY, "1");
+    gate.addEventListener("transitionend", function () {
+      gate.style.display = "none";
+    }, { once: true });
+  }
+
+  function tryPassword() {
+    if (input.value === PASSWORD) {
+      unlock();
+    } else {
+      errEl.classList.add("visible");
+      inputWrap.classList.remove("shake");
+      void inputWrap.offsetWidth; // reflow to restart animation
+      inputWrap.classList.add("shake");
+      input.value = "";
+      inputWrap.addEventListener("animationend", function () {
+        inputWrap.classList.remove("shake");
+      }, { once: true });
+    }
+  }
+
+  if (sessionStorage.getItem(KEY) === "1") {
+    gate.style.display = "none";
+    wrap.classList.remove("page-blurred");
+  } else {
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") tryPassword();
+      if (errEl.classList.contains("visible")) {
+        errEl.classList.remove("visible");
+        inputWrap.style.borderColor = "";
+      }
+    });
+    btn.addEventListener("click", tryPassword);
+    input.focus();
+  }
+})();
+</script>
 </body>
 </html>
