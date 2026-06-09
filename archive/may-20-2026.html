@@ -211,23 +211,58 @@ details > div {
   color: var(--muted);
   font-size: 13px;
 }
-#archive-banner {
-  background: #fffaf0;
-  border: 1px solid #e2a93b;
-  border-radius: 12px;
-  padding: 14px 18px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-size: 14px;
-  flex-wrap: wrap;
+.version-pill {
+  position: relative;
+  display: inline-block;
 }
-#archive-banner a {
-  font-weight: 600;
-  white-space: nowrap;
-  color: var(--accent);
+.version-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.version-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+.version-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  min-width: 200px;
+  z-index: 100;
+  overflow: hidden;
+}
+.version-pill.open .version-menu {
+  display: block;
+}
+.version-item {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+}
+a.version-item:hover {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.version-item.current {
+  color: var(--muted);
+  cursor: default;
+  font-weight: 500;
 }
 </style>
 </head>
@@ -256,13 +291,6 @@ details > div {
 </div>
 
 <div id="page-wrap" class="page-blurred">
-<div id="archive-banner">
-  <div>
-    <strong>Archived version: May 20, 2026</strong>
-    <span> - This snapshot is preserved for reference. It is not the current guidance.</span>
-  </div>
-  <a href="../index.html">View current guidance (June 9, 2026) &rarr;</a>
-</div>
 <div class="page">
   <section class="hero">
     <div class="kicker" style="color: rgba(255,255,255,0.78);">Q-S internal reference page</div>
@@ -270,7 +298,16 @@ details > div {
     <p>AI-generated content is now subject to active federal and state law. This hub defines Q-S's current compliance obligations, flags legislation under active monitoring, and assigns clear internal ownership for each risk area.</p>
     <div class="meta">
       <!-- <span>Owner: Chief Innovation &amp; AI Office</span> -->
-      <span>Last updated: May 20, 2026</span>
+      <div class="version-pill" id="version-selector">
+        <button class="version-btn" onclick="document.getElementById('version-selector').classList.toggle('open')">
+          Last updated: May 20, 2026
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="version-menu">
+          <a class="version-item" href="../index.html">June 9, 2026</a>
+          <span class="version-item current">May 20, 2026 - current</span>
+        </div>
+      </div>
       <span>Status: Current guidance</span>
       <span>Scope: U.S. advertising, media, publishing, production, voice, likeness, synthetic media</span>
     </div>
@@ -745,6 +782,10 @@ details > div {
     input.focus();
   }
 })();
+  document.addEventListener('click', function(e) {
+    var vs = document.getElementById('version-selector');
+    if (vs && !vs.contains(e.target)) vs.classList.remove('open');
+  });
 </script>
 </body>
 </html>
