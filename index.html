@@ -264,6 +264,19 @@ a.version-item:hover {
   cursor: default;
   font-weight: 500;
 }
+/* -- Verification status badges -- */
+.badge.verified-primary { background: #e3f3ec; color: #0f5e46; }
+.badge.review-needed { background: #fff0e8; color: #8a3b12; }
+.badge.secondary-source { background: #f0f3f8; color: #5f6b7a; }
+/* -- Source metadata -- */
+.source-meta { font-size: 12px; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.source-meta a { color: var(--accent); }
+/* -- Status sublabels for in-force vs enacted-not-effective -- */
+.status-sublabel { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 5px 12px; border-radius: 6px; display: inline-block; margin: 16px 0 12px; }
+.status-sublabel.in-force { background: var(--good-soft); color: var(--good); }
+.status-sublabel.future-effective { background: #fff5db; color: #795600; }
+/* -- Q-S impact callout in What's New cards -- */
+.qs-impact { font-size: 13px; background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -326,8 +339,8 @@ a.version-item:hover {
       <a href="#federal">Federal watchlist</a>
       <a href="#state">State watchlist</a>
       <a href="#classification">Commercial vs political</a>
-      <!-- <a href="#routing">Q-S routing</a> -->
-      <!-- <a href="#library">Reference library</a> -->
+      <a href="#do-now">What do I need to do?</a>
+      <a href="#routing">Q-S routing</a>
     </div>
   </section>
 
@@ -339,36 +352,42 @@ a.version-item:hover {
         <span class="badge orange">State watchlist</span>
         <h3><a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260SB1050" target="_blank" rel="noopener noreferrer">California synthetic performer ad disclosure bill clears Appropriations</a></h3>
         <p>The California Assembly Appropriations Committee reported SB 1050 with a do pass as amended recommendation by a vote of 12 to 1 on August 13, 2026, and the bill was ordered to a second reading, according to the <a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260SB1050" target="_blank" rel="noopener noreferrer">official bill history</a>. SB 1050 would require clear and conspicuous disclosure when AI-generated synthetic performers appear in commercial advertisements, adding a California obligation alongside New York's in-force synthetic performer disclosure law. An Assembly floor vote is the next step before the measure could reach Governor Newsom. It is the most advanced California advertising disclosure bill of the session.</p>
+        <p class="qs-impact"><strong>Q-S impact:</strong> No immediate compliance change. SB 1050 is proposed legislation, not current law. Monitor for Assembly floor vote.</p>
         <p class="small"><a href="#state">State watchlist</a></p>
       </div>
       <div class="card">
         <span class="badge orange">State watchlist</span>
         <h3><a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260SB1111" target="_blank" rel="noopener noreferrer">California advances digital replica impersonation bill SB 1111</a></h3>
         <p>California SB 1111 received a unanimous do pass recommendation, 15 to 0, from the Assembly Appropriations Committee on August 13, 2026 and was ordered to a third reading, according to its <a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260SB1111" target="_blank" rel="noopener noreferrer">bill history</a>. The measure clarifies that the state's criminal false impersonation statute reaches the use of a digital replica to impersonate another person. A companion deepfake extortion measure, SB 1015, was held under submission at the same August 13 hearing and is stalled for the session, per its <a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260SB1015" target="_blank" rel="noopener noreferrer">record</a>.</p>
+        <p class="qs-impact"><strong>Q-S impact:</strong> No immediate compliance change. SB 1111 is proposed legislation pending a Senate floor vote. Monitor for enactment before year end.</p>
         <p class="small"><a href="#state">State watchlist</a></p>
       </div>
       <div class="card">
         <span class="badge orange">State watchlist</span>
         <h3>Two California AI bills stall in Assembly Appropriations</h3>
         <p><a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260AB412" target="_blank" rel="noopener noreferrer">AB 412</a>, which would require AI developers to document and disclose copyrighted training materials on request by rights holders, was held under submission in the Assembly Appropriations Committee on August 13, 2026. <a href="https://leginfo.legislature.ca.gov/faces/billHistoryClient.xhtml?bill_id=202520260SB1146" target="_blank" rel="noopener noreferrer">SB 1146</a>, which would require disclosure when a health-related consumer ad uses a digital replica depicted as a health care provider, was held under submission the same day. Both are effectively stalled for the current session, narrowing the set of California proposals still moving toward a floor vote.</p>
+        <p class="qs-impact"><strong>Q-S impact:</strong> No immediate compliance change from either bill. Both are stalled and unlikely to become law this session. No new review obligations from this development.</p>
         <p class="small"><a href="#state">State watchlist</a></p>
       </div>
       <div class="card">
         <span class="badge blue">Executive action</span>
         <h3><a href="https://www.cnbc.com/2026/08/03/white-house-ai-companies-voluntary-framework-meeting.html" target="_blank" rel="noopener noreferrer">White House reviews voluntary frontier AI model framework with developers</a></h3>
         <p>The White House convened major AI developers, including OpenAI, Anthropic, Microsoft, Meta, and Nvidia, on August 4, 2026 to review a finalized voluntary framework for federal review of advanced frontier models, according to <a href="https://www.cnbc.com/2026/08/03/white-house-ai-companies-voluntary-framework-meeting.html" target="_blank" rel="noopener noreferrer">CNBC</a> and <a href="https://fortune.com/2026/08/04/baffling-white-house-wont-publicly-release-ai-model-evaluation-framework-it-reviewed-today-with-openai-anthropic-microsoft-and-others/" target="_blank" rel="noopener noreferrer">Fortune</a>. The framework offers a 30-day pre-release window for government cybersecurity evaluation of covered closed-source models and may not be used to create a mandatory licensing or preclearance system. It carries out the <a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank" rel="noopener noreferrer">June 2, 2026 executive order</a> on advanced AI innovation and security, and open-weight models fall outside its scope.</p>
+        <p class="qs-impact"><strong>Q-S impact:</strong> No immediate compliance change. This is a voluntary framework directed at model developers, not agencies or advertisers. Monitor for any binding regulatory follow-on.</p>
         <p class="small"><a href="#federal">Federal watchlist</a></p>
       </div>
       <div class="card">
         <span class="badge orange">State watchlist</span>
         <h3><a href="https://www.nysenate.gov/legislation/bills/2025/S6954" target="_blank" rel="noopener noreferrer">New York provenance and disclosure bills remain on Governor Hochul's desk</a></h3>
         <p>Two AI transparency measures passed by the New York legislature remain unsigned as of mid-August 2026, with Governor Kathy Hochul holding a signing deadline of December 31, 2026, per a <a href="https://www.transparencycoalition.ai/news/ai-legislative-update-august14-2026" target="_blank" rel="noopener noreferrer">Transparency Coalition update</a>. S6954 would require generative AI systems to attach provenance data to synthetic content, and A3411 would require a notice that generative AI outputs may be inaccurate. S6954 passed the Senate 60 to 1 and the Assembly 141 to 0 in early June 2026. No gubernatorial action has been recorded as of mid-August 2026.</p>
+        <p class="qs-impact"><strong>Q-S impact:</strong> Potentially applicable depending on use case if signed. S6954 provenance duties could affect how AI-generated content is distributed in New York. Legal review may be appropriate before year end.</p>
         <p class="small"><a href="#state">State watchlist</a></p>
       </div>
       <div class="card">
         <span class="badge orange">Federal watchlist</span>
         <h3><a href="https://www.congress.gov/bill/119th-congress/senate-bill/4591" target="_blank" rel="noopener noreferrer">NO FAKES Act still awaits a Senate floor vote during the August recess</a></h3>
         <p><a href="https://www.congress.gov/bill/119th-congress/senate-bill/4591" target="_blank" rel="noopener noreferrer">S.4591</a> remains on the Senate legislative calendar with no floor vote scheduled as of August 17, 2026, with Congress in its August recess. The bill cleared the Senate Judiciary Committee by voice vote on June 18, 2026, and would create a federal right against unauthorized AI replicas of a person's voice and visual likeness, with platform penalties reaching $750,000 per work, according to <a href="https://www.hklaw.com/en/insights/publications/2026/06/senate-judiciary-committee-advances-legislation-to-protect-name" target="_blank" rel="noopener noreferrer">Holland &amp; Knight</a>. No House companion has advanced.</p>
+        <p class="qs-impact"><strong>Q-S impact:</strong> No immediate compliance change. If enacted, the NO FAKES Act would create federal liability for digital replica use without consent. Legal review may be appropriate once a floor vote is scheduled.</p>
         <p class="small"><a href="#federal">Federal watchlist</a></p>
       </div>
     </div>
@@ -378,9 +397,14 @@ a.version-item:hover {
     <h2>Current snapshot</h2>
     <div class="grid">
       <div class="card">
-        <div class="count">21</div>
-        <div class="kicker">Enacted statutes and official actions</div>
-        <p>Enacted statutes and official actions currently in force.</p>
+        <div class="count">20</div>
+        <div class="kicker">Currently in force</div>
+        <p>Enacted laws and binding official actions currently operative as of August 17, 2026.</p>
+      </div>
+      <div class="card">
+        <div class="count">1</div>
+        <div class="kicker">Enacted, not yet effective</div>
+        <p>Laws signed into law with a future operative date. Obligations do not yet apply.</p>
       </div>
       <div class="card">
         <div class="count">8</div>
@@ -391,11 +415,6 @@ a.version-item:hover {
         <div class="count">8</div>
         <div class="kicker">Tracked state proposals</div>
         <p>Pending state items with commercial, platform, or election relevance.</p>
-      </div>
-      <div class="card">
-        <div class="count">9</div>
-        <div class="kicker">Substantive comparison points</div>
-        <p>Key areas where understanding has been refined as the legal landscape has evolved.</p>
       </div>
     </div>
   </section>
@@ -429,7 +448,8 @@ a.version-item:hover {
 
   <section class="section" id="live-now">
     <h2>What is live now</h2>
-    <p class="lead">Q-S operates under a real and growing baseline of enacted law. The list below includes the current items most likely to affect commercial work, rights handling, platform operations, or market-specific review.</p>
+    <p class="lead">Q-S operates under a real and growing baseline of enacted law. The list below distinguishes laws that are currently operative from laws that have been enacted but whose obligations have not yet begun. A law that has been signed is not necessarily operative today.</p>
+    <p class="status-sublabel in-force">In force now</p>
     <div class="columns-2">
       <div class="card">
           <div class="kicker">United States</div>
@@ -443,9 +463,11 @@ a.version-item:hover {
           <p>FTC enforcement is active as of May 19, 2026. Warning letters have been sent to 16 major platforms and 12 nudify AI sites. Platform governance, moderation workflows, and crisis-response procedures should be reviewed against the 48-hour removal requirement now.</p>
         </div><div class="card">
           <div class="kicker">California</div>
-          <h3><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942" target="_blank" rel="noopener noreferrer">California AI Transparency Act</a></h3>
-          <p><strong>Effective:</strong> In force since Aug. 2, 2026 (hosting-platform duties from Jan. 1, 2027)</p>
-          <p>The provenance mandate is now operative and enforceable, with penalties starting at $5,000 per violation per day. Vendor review should confirm whether tools meet SB 942 obligations for machine-readable provenance data, a public detection tool, user-applied labels, and the hosting-platform duties that begin in 2027. This is primarily a tool-governance and provenance issue, not a blanket creative-labeling law.</p>
+          <span class="badge review-needed">NEEDS REVIEW</span>
+          <h3><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942" target="_blank" rel="noopener noreferrer">California AI Transparency Act (SB 942)</a></h3>
+          <p><strong>Operative date per official statute:</strong> January 1, 2026. The dates "August 2, 2026" and "January 1, 2027 (hosting-platform duties)" appeared in prior versions of this page and originated from secondary sources. Neither has been independently verified against the official California enforcement record or enrolled bill text. Legal review may be appropriate for clarifying current compliance obligations under this statute.</p>
+          <p>SB 942 is primarily a tool-governance and provenance issue, not a blanket creative-labeling law. Vendor review should confirm whether tools meet the statute's obligations for machine-readable provenance data and a public detection tool.</p>
+          <p class="source-meta">Operative date source: <a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942" target="_blank" rel="noopener noreferrer">Official CA Legislature (Tier 1)</a>. "Aug. 2, 2026" and Jan. 1, 2027 hosting duties: secondary source only, not verified. Human review recommended.</p>
         </div><div class="card">
           <div class="kicker">California</div>
           <h3><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB2602" target="_blank" rel="noopener noreferrer">Digital replica contract protections for living performers</a></h3>
@@ -477,30 +499,46 @@ a.version-item:hover {
           <p><strong>Effective:</strong> Signed May 29, 2026; key provenance provisions phase in through October 2027</p>
           <p>Connecticut's AI omnibus law includes synthetic content provenance requirements for covered AI systems. Tool vendors and platform operators distributing synthetic media in Connecticut should review the phase-in timeline.</p>
         </div><div class="card">
-          <div class="kicker">Illinois</div>
-          <h3><a href="https://capitolnewsillinois.com/news/pritzker-signs-landmark-ai-regulation-bill-that-aims-to-mitigate-risks/" target="_blank" rel="noopener noreferrer">AI Safety Measures Act</a></h3>
-          <p>Signed July 6, 2026. Applies to frontier AI developers with $500M+ annual revenue. Requires annual third-party safety audits (first in the nation), publication of a catastrophic-risk framework, incident reporting within 72 hours (24 hours for imminent life-safety risks), and whistleblower protections. Takes effect January 1, 2028.</p>
-        </div><div class="card">
           <div class="kicker">Rhode Island</div>
-          <h3><a href="https://www.transparencycoalition.ai/news/rhode-island-enacts-four-new-ai-laws-including-a-therapy-chatbot-ban" target="_blank" rel="noopener noreferrer">AI chatbot safety and therapy chatbot laws</a></h3>
-          <p>Signed June 22, 2026. Three laws: chatbot operators must detect suicidal ideation and route users to crisis services; AI systems may not provide therapy or psychotherapy without licensed professional supervision; healthcare providers must notify patients of AI use in clinical documentation. Penalties up to $15,000 per day for chatbot safety violations.</p>
+          <span class="badge secondary-source">SECONDARY SOURCE</span>
+          <h3>AI chatbot safety and therapy chatbot laws</h3>
+          <p><strong>Signed:</strong> June 22, 2026. Chatbot operators must detect suicidal ideation and route users to crisis services. AI systems may not provide therapy or psychotherapy without licensed professional supervision. Healthcare providers must notify patients of AI use in clinical documentation. Penalties up to $15,000 per day for chatbot safety violations.</p>
+          <p class="source-meta">Source: <a href="https://www.transparencycoalition.ai/news/rhode-island-enacts-four-new-ai-laws-including-a-therapy-chatbot-ban" target="_blank" rel="noopener noreferrer">Transparency Coalition (Tier 3)</a>. Primary source (RI legislature) not confirmed. Human review recommended before relying on specific penalty figures.</p>
         </div><div class="card">
           <div class="kicker">Hawaii</div>
+          <span class="badge verified-primary">PRIMARY SOURCE</span>
           <h3><a href="https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2137_CD1_.pdf" target="_blank" rel="noopener noreferrer">HB 2137, deepfake and synthetic performer advertising law</a></h3>
-          <p>Signed July 16, 2026. Prohibits knowingly publishing a realistic AI-generated imitation of a person without consent when used in advertising or to commit fraud, defamation, harassment, or other unlawful conduct, and requires conspicuous disclosure of a synthetic performer in commercial advertising when the advertiser has actual knowledge. Remedies include removal orders, damages of up to $25,000 per advertisement, punitive damages, and attorney fees. Creative review and trafficking for Hawaii-facing ads should apply a synthetic performer disclosure check.</p>
+          <p><strong>Signed:</strong> July 16, 2026. Prohibits knowingly publishing a realistic AI-generated imitation of a person without consent when used in advertising or to commit fraud, defamation, harassment, or other unlawful conduct. Requires conspicuous disclosure of a synthetic performer in commercial advertising when the advertiser has actual knowledge. Damages reach $25,000 per advertisement. Creative and trafficking review for Hawaii-facing ads should include a synthetic performer disclosure check.</p>
+          <p class="source-meta">Source: <a href="https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2137_CD1_.pdf" target="_blank" rel="noopener noreferrer">Hawaii Legislature, enrolled bill text (Tier 1)</a>.</p>
         </div><div class="card">
           <div class="kicker">Hawaii</div>
-          <h3><a href="https://www.transparencycoalition.ai/news/ai-legislative-update-july17-2026" target="_blank" rel="noopener noreferrer">SB 3001, conversational AI disclosure and minor safety law</a></h3>
-          <p>Signed July 16, 2026. Requires conversational AI services to disclose that a user is interacting with artificial intelligence, with repeated disclosures for services directed at minors. It also prohibits AI from impersonating licensed mental health professionals or using features that increase emotional dependence in minors. Violations are treated as unfair or deceptive practices, with penalties up to $1,000 per violation and a $1 million cap per operator. Annual reporting begins in 2028.</p>
+          <span class="badge secondary-source">SECONDARY SOURCE</span>
+          <h3>SB 3001, conversational AI disclosure and minor safety law</h3>
+          <p><strong>Signed:</strong> July 16, 2026. Requires conversational AI services to disclose that a user is interacting with artificial intelligence, with repeated disclosures for services directed at minors. Prohibits AI from impersonating licensed mental health professionals or using features that increase emotional dependence in minors. Enforceable as an unfair or deceptive practice, with penalties up to $1,000 per violation and a $1 million cap per operator.</p>
+          <p class="source-meta">Source: <a href="https://www.transparencycoalition.ai/news/ai-legislative-update-july17-2026" target="_blank" rel="noopener noreferrer">Transparency Coalition (Tier 3)</a>. Primary source (HI legislature) not confirmed. Human review recommended before relying on specific penalty figures.</p>
         </div><div class="card">
           <div class="kicker">New Jersey</div>
-          <h3><a href="https://njbiz.com/fair-act-algorithmic-rent-pricing-nj/" target="_blank" rel="noopener noreferrer">FAIR Act, ban on algorithmic rent-setting software</a></h3>
-          <p>Signed July 20, 2026. Prohibits landlords from using algorithmic pricing systems that rely on competitors' nonpublic rent and vacancy data to coordinate rental prices or occupancy levels, making New Jersey the fourth state to restrict rent-setting algorithms. Enforcement runs through the state Attorney General, with a reporting channel for renters. Direct advertising relevance is limited, but the law adds to the enacted baseline of state constraints on AI-driven and algorithmic decision systems.</p>
+          <span class="badge secondary-source">SECONDARY SOURCE</span>
+          <h3>FAIR Act, ban on algorithmic rent-setting software</h3>
+          <p><strong>Signed:</strong> July 20, 2026. Prohibits landlords from using algorithmic pricing systems that rely on competitors' nonpublic rent and vacancy data to coordinate rental prices or occupancy levels. New Jersey is the fourth state to restrict rent-setting algorithms. Direct advertising relevance is limited, but the law adds to the enacted baseline of state constraints on AI-driven and algorithmic decision systems.</p>
+          <p class="source-meta">Source: <a href="https://njbiz.com/fair-act-algorithmic-rent-pricing-nj/" target="_blank" rel="noopener noreferrer">NJBiz (Tier 2)</a>. Primary source (NJ Legislature) not confirmed.</p>
         </div>
+    </div>
+    <p class="status-sublabel future-effective">Enacted, not yet effective</p>
+    <p class="lead" style="margin-bottom:12px;">These laws have been signed but their operative date is in the future. No compliance obligations apply yet.</p>
+    <div class="columns-2">
+      <div class="card">
+          <div class="kicker">Illinois</div>
+          <span class="badge secondary-source">SECONDARY SOURCE</span>
+          <h3>Artificial Intelligence Safety Measures Act (SB 315)</h3>
+          <p><strong>Signed:</strong> July 6, 2026. <strong>Operative date: January 1, 2028.</strong> This law is not currently operative. No compliance obligations apply until January 1, 2028.</p>
+          <p>Applies to frontier AI developers with at least $500 million in annual revenue. When operative, will require annual third-party safety audits, publication of a catastrophic-risk framework, incident reporting within 72 hours (24 hours for imminent life-safety risks), and whistleblower protections. Affects vendor governance and due-diligence expectations for companies relying on covered AI platforms.</p>
+          <p class="source-meta">Source: <a href="https://capitolnewsillinois.com/news/pritzker-signs-landmark-ai-regulation-bill-that-aims-to-mitigate-risks/" target="_blank" rel="noopener noreferrer">Capitol News Illinois (Tier 2)</a>. Primary source (IL Legislature official text) not confirmed. Human review recommended.</p>
+      </div>
     </div>
     <details>
       <summary>View full enacted-law table</summary>
-      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>Jurisdiction</th><th>Law or action name</th><th>Effective date</th><th>Practical business implication</th></tr></thead><tbody><tr><td>United States</td><td><a href="https://www.ftc.gov/business-guidance/advertising-marketing" target="_blank" rel="noopener noreferrer">FTC Act, unfair or deceptive acts and practices authority</a></td><td>In force</td><td>Treat this as the default federal backstop. AI use does not reduce the underlying truth-in-advertising burden.</td></tr><tr><td>United States</td><td><a href="https://www.congress.gov/bill/119th-congress/senate-bill/146" target="_blank" rel="noopener noreferrer">TAKE IT DOWN Act, platform removal duties</a></td><td>May 19, 2026 (FTC enforcement active)</td><td>FTC enforcement is active. Warning letters sent to 16 major platforms and 12 nudify AI sites. The 48-hour removal requirement for nonconsensual intimate imagery is in force. Platform governance and moderation workflows should be reviewed now.</td></tr><tr><td>California</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942" target="_blank" rel="noopener noreferrer">California AI Transparency Act</a></td><td>In force since Aug. 2, 2026 (hosting-platform duties Jan. 1, 2027)</td><td>Now operative and enforceable, with penalties starting at $5,000 per violation per day. Vendor review should confirm whether tools meet SB 942 obligations. This is primarily a tool-governance and provenance issue, not a blanket creative-labeling law.</td></tr><tr><td>California</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB2602" target="_blank" rel="noopener noreferrer">Digital replica contract protections for living performers</a></td><td>Jan. 1, 2025</td><td>Business affairs should treat digital-replica language as a special clause set, not boilerplate.</td></tr><tr><td>California</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB1836" target="_blank" rel="noopener noreferrer">Deceased personality digital replica protections</a></td><td>Jan. 1, 2025</td><td>Any campaign using a deceased celebrity, narrator, or recognizable persona should be cleared through rights review before production or distribution.</td></tr><tr><td>New York</td><td><a href="https://www.nysenate.gov/legislation/laws/GBL/396-B" target="_blank" rel="noopener noreferrer">Synthetic performer disclosure law</a></td><td>June 9, 2026</td><td>This is the clearest current state ad-disclosure rule for synthetic performers. It is now in force. Creative review and trafficking must apply disclosure checks to New York-facing ads immediately.</td></tr><tr><td>New York</td><td>Post-mortem publicity and digital replica amendments</td><td>Effective immediately</td><td>Any use of a deceased person's recreated or materially altered voice or likeness for commercial purposes should be rights-cleared under New York's updated statute.</td></tr><tr><td>New York</td><td>Digital replica clauses in contracts</td><td>Jan. 1, 2025 for contracts entered into or modified on or after that date</td><td>New York now has a business-affairs checkpoint that closely parallels California's living-performer rule.</td></tr><tr><td>New York</td><td><a href="https://www.nysenate.gov/legislation/laws/LAB/A36" target="_blank" rel="noopener noreferrer">New York State Fashion Workers Act</a></td><td>June 19, 2025</td><td>Important for brands and agencies using models in New York. The AI issue here is embedded in talent consent and replica control, not public disclosure.</td></tr><tr><td>Tennessee</td><td><a href="https://publications.tnsosfiles.com/acts/113/pub/pc0588.pdf" target="_blank" rel="noopener noreferrer">Ensuring Likeness, Voice, and Image Security Act of 2024, ELVIS Act</a></td><td>July 1, 2024</td><td>Tennessee is a key state for voice-clone risk. Audio creative, celebrity simulation, and synthetic spokesperson work should route through rights clearance.</td></tr><tr><td>Washington</td><td><a href="https://app.leg.wa.gov/RCW/default.aspx?cite=42.62&full=true" target="_blank" rel="noopener noreferrer">Synthetic media in electioneering communications</a></td><td>Jan. 1, 2026</td><td>Ordinary brand advertising is not the main target, but publishers and ad platforms taking political or issue advocacy inventory in Washington should treat this as a trafficking and review rule.</td></tr><tr><td>Minnesota</td><td><a href="https://www.revisor.mn.gov/statutes/cite/609.771" target="_blank" rel="noopener noreferrer">Deep fake media to influence an election</a></td><td>Aug. 1, 2023</td><td>Narrow election law, but it matters for publisher and platform review of political inventory in Minnesota.</td></tr><tr><td>Minnesota</td><td>Nonconsensual dissemination of deep fake sexual images</td><td>Effective</td><td>Important adjacent-risk rule for any media company or platform that hosts user uploads or creator content.</td></tr><tr><td>Washington</td><td><a href="https://app.leg.wa.gov/billsummary?BillNumber=5886&Year=2025&Initiative=false" target="_blank" rel="noopener noreferrer">Washington SB 5886, forged digital likeness amendments</a></td><td>June 11, 2026</td><td>Expands Washington's Personality Rights Law to cover AI-generated forged digital likenesses. Increased civil penalties and noneconomic damages apply to digital replica infringement without consent.</td></tr><tr><td>Connecticut</td><td><a href="https://www.cga.ct.gov/asp/cgabillstatus/cgabillstatus.asp?selBillType=Bill&amp;which_year=2026&amp;bill_num=5312" target="_blank" rel="noopener noreferrer">HB 5312, deepfake intimate image platform penalties</a></td><td>Signed May 26, 2026</td><td>Establishes civil penalties of $25,000 per image per day for platforms hosting non-consensual AI-generated intimate images. Platform moderation workflows and crisis-response procedures for user-generated content should be reviewed for Connecticut compliance.</td></tr><tr><td>Connecticut</td><td><a href="https://www.cga.ct.gov/asp/cgabillstatus/cgabillstatus.asp?selBillType=Bill&amp;which_year=2026&amp;bill_num=5" target="_blank" rel="noopener noreferrer">SB 5, AI omnibus law with synthetic content provenance requirements</a></td><td>Signed May 29, 2026; key provenance provisions phase in through October 2027</td><td>Includes synthetic content provenance requirements for covered AI systems. Tool vendors and platform operators distributing synthetic media in Connecticut should review the phase-in timeline against their product roadmaps.</td></tr><tr><td>Illinois</td><td><a href="https://www.crowell.com/en/insights/client-alerts/illinois-imposes-transparency-and-safety-obligations-on-frontier-ai-systems" target="_blank" rel="noopener noreferrer">Artificial Intelligence Safety Measures Act (SB 315)</a></td><td>Signed July 6, 2026; takes effect January 1, 2028</td><td>Applies to frontier AI developers generating $500M+ in annual revenue. Requires annual third-party safety audits, catastrophic-risk framework publication, incident reporting within 72 hours, and whistleblower protections. Affects AI vendor governance and due-diligence expectations for companies relying on covered AI platforms.</td></tr><tr><td>Rhode Island</td><td><a href="https://aiweekly.co/alerts/rhode-island-signs-three-ai-laws-covering-mental-health-chatbots" target="_blank" rel="noopener noreferrer">AI chatbot safety, therapy chatbot ban, and AI scribe disclosure laws</a></td><td>Signed June 22, 2026</td><td>Chatbot operators must detect suicidal ideation and route users to crisis services, with annual reporting beginning July 1, 2027. AI therapy and psychotherapy services are banned without licensed professional supervision. Healthcare providers must notify patients of AI use in clinical documentation and review AI-generated records for accuracy.</td></tr><tr><td>Hawaii</td><td><a href="https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2137_CD1_.pdf" target="_blank" rel="noopener noreferrer">HB 2137, deepfake and synthetic performer advertising law</a></td><td>Signed July 16, 2026</td><td>Prohibits knowingly publishing a nonconsensual realistic AI-generated imitation of a person when used in advertising or to commit fraud, defamation, harassment, or other unlawful conduct, and requires conspicuous disclosure of a synthetic performer in commercial advertising when the advertiser has actual knowledge. Damages reach $25,000 per advertisement, with estate rights for up to 10 years after death. Creative and trafficking review for Hawaii-facing ads should include a synthetic performer disclosure check.</td></tr><tr><td>Hawaii</td><td><a href="https://www.transparencycoalition.ai/news/ai-legislative-update-july17-2026" target="_blank" rel="noopener noreferrer">SB 3001, conversational AI disclosure and minor safety law</a></td><td>Signed July 16, 2026</td><td>Requires conversational AI services to disclose that a user is interacting with artificial intelligence, with repeated disclosures for services aimed at minors, and prohibits AI from impersonating licensed mental health professionals or using features that increase emotional dependence in minors. Enforceable as an unfair or deceptive practice, with penalties up to $1,000 per violation and a $1 million cap per operator.</td></tr><tr><td>New Jersey</td><td><a href="https://njbiz.com/fair-act-algorithmic-rent-pricing-nj/" target="_blank" rel="noopener noreferrer">FAIR Act, ban on algorithmic rent-setting software (A3497/S451)</a></td><td>Signed July 20, 2026</td><td>Prohibits landlords from using algorithmic pricing systems that rely on competitors' nonpublic rent and vacancy data to coordinate rental prices or occupancy levels. New Jersey is the fourth state to restrict rent-setting algorithms. Direct advertising relevance is limited, but it adds to the state baseline of constraints on AI-driven and algorithmic decision systems.</td></tr></tbody></table></div></div>
+      <div><div class="table-wrap"><table class="data-table"><thead><tr><th>Jurisdiction</th><th>Law or action name</th><th>Effective date</th><th>Practical business implication</th></tr></thead><tbody><tr><td>United States</td><td><a href="https://www.ftc.gov/business-guidance/advertising-marketing" target="_blank" rel="noopener noreferrer">FTC Act, unfair or deceptive acts and practices authority</a></td><td>In force</td><td>Treat this as the default federal backstop. AI use does not reduce the underlying truth-in-advertising burden.</td></tr><tr><td>United States</td><td><a href="https://www.congress.gov/bill/119th-congress/senate-bill/146" target="_blank" rel="noopener noreferrer">TAKE IT DOWN Act, platform removal duties</a></td><td>May 19, 2026 (FTC enforcement active)</td><td>FTC enforcement is active. Warning letters sent to 16 major platforms and 12 nudify AI sites. The 48-hour removal requirement for nonconsensual intimate imagery is in force. Platform governance and moderation workflows should be reviewed now.</td></tr><tr><td>California</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942" target="_blank" rel="noopener noreferrer">California AI Transparency Act</a></td><td>In force since Aug. 2, 2026 (hosting-platform duties Jan. 1, 2027)</td><td>Now operative and enforceable, with penalties starting at $5,000 per violation per day. Vendor review should confirm whether tools meet SB 942 obligations. This is primarily a tool-governance and provenance issue, not a blanket creative-labeling law.</td></tr><tr><td>California</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB2602" target="_blank" rel="noopener noreferrer">Digital replica contract protections for living performers</a></td><td>Jan. 1, 2025</td><td>Business affairs should treat digital-replica language as a special clause set, not boilerplate.</td></tr><tr><td>California</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB1836" target="_blank" rel="noopener noreferrer">Deceased personality digital replica protections</a></td><td>Jan. 1, 2025</td><td>Any campaign using a deceased celebrity, narrator, or recognizable persona should be cleared through rights review before production or distribution.</td></tr><tr><td>New York</td><td><a href="https://www.nysenate.gov/legislation/laws/GBL/396-B" target="_blank" rel="noopener noreferrer">Synthetic performer disclosure law</a></td><td>June 9, 2026</td><td>This is the clearest current state ad-disclosure rule for synthetic performers. It is now in force. Creative review and trafficking must apply disclosure checks to New York-facing ads immediately.</td></tr><tr><td>New York</td><td>Post-mortem publicity and digital replica amendments</td><td>Effective immediately</td><td>Any use of a deceased person's recreated or materially altered voice or likeness for commercial purposes should be rights-cleared under New York's updated statute.</td></tr><tr><td>New York</td><td>Digital replica clauses in contracts</td><td>Jan. 1, 2025 for contracts entered into or modified on or after that date</td><td>New York now has a business-affairs checkpoint that closely parallels California's living-performer rule.</td></tr><tr><td>New York</td><td><a href="https://www.nysenate.gov/legislation/laws/LAB/A36" target="_blank" rel="noopener noreferrer">New York State Fashion Workers Act</a></td><td>June 19, 2025</td><td>Important for brands and agencies using models in New York. The AI issue here is embedded in talent consent and replica control, not public disclosure.</td></tr><tr><td>Tennessee</td><td><a href="https://publications.tnsosfiles.com/acts/113/pub/pc0588.pdf" target="_blank" rel="noopener noreferrer">Ensuring Likeness, Voice, and Image Security Act of 2024, ELVIS Act</a></td><td>July 1, 2024</td><td>Tennessee is a key state for voice-clone risk. Audio creative, celebrity simulation, and synthetic spokesperson work should route through rights clearance.</td></tr><tr><td>Washington</td><td><a href="https://app.leg.wa.gov/RCW/default.aspx?cite=42.62&full=true" target="_blank" rel="noopener noreferrer">Synthetic media in electioneering communications</a></td><td>Jan. 1, 2026</td><td>Ordinary brand advertising is not the main target, but publishers and ad platforms taking political or issue advocacy inventory in Washington should treat this as a trafficking and review rule.</td></tr><tr><td>Minnesota</td><td><a href="https://www.revisor.mn.gov/statutes/cite/609.771" target="_blank" rel="noopener noreferrer">Deep fake media to influence an election</a></td><td>Aug. 1, 2023</td><td>Narrow election law, but it matters for publisher and platform review of political inventory in Minnesota.</td></tr><tr><td>Minnesota</td><td>Nonconsensual dissemination of deep fake sexual images</td><td>Effective</td><td>Important adjacent-risk rule for any media company or platform that hosts user uploads or creator content.</td></tr><tr><td>Washington</td><td><a href="https://app.leg.wa.gov/billsummary?BillNumber=5886&Year=2025&Initiative=false" target="_blank" rel="noopener noreferrer">Washington SB 5886, forged digital likeness amendments</a></td><td>June 11, 2026</td><td>Expands Washington's Personality Rights Law to cover AI-generated forged digital likenesses. Increased civil penalties and noneconomic damages apply to digital replica infringement without consent.</td></tr><tr><td>Connecticut</td><td><a href="https://www.cga.ct.gov/asp/cgabillstatus/cgabillstatus.asp?selBillType=Bill&amp;which_year=2026&amp;bill_num=5312" target="_blank" rel="noopener noreferrer">HB 5312, deepfake intimate image platform penalties</a></td><td>Signed May 26, 2026</td><td>Establishes civil penalties of $25,000 per image per day for platforms hosting non-consensual AI-generated intimate images. Platform moderation workflows and crisis-response procedures for user-generated content should be reviewed for Connecticut compliance.</td></tr><tr><td>Connecticut</td><td><a href="https://www.cga.ct.gov/asp/cgabillstatus/cgabillstatus.asp?selBillType=Bill&amp;which_year=2026&amp;bill_num=5" target="_blank" rel="noopener noreferrer">SB 5, AI omnibus law with synthetic content provenance requirements</a></td><td>Signed May 29, 2026; key provenance provisions phase in through October 2027</td><td>Includes synthetic content provenance requirements for covered AI systems. Tool vendors and platform operators distributing synthetic media in Connecticut should review the phase-in timeline against their product roadmaps.</td></tr><tr><td>Illinois</td><td><a href="https://www.crowell.com/en/insights/client-alerts/illinois-imposes-transparency-and-safety-obligations-on-frontier-ai-systems" target="_blank" rel="noopener noreferrer">Artificial Intelligence Safety Measures Act (SB 315)</a></td><td>Signed July 6, 2026. OPERATIVE DATE: January 1, 2028. This law is not currently in force.</td><td>ENACTED, NOT YET EFFECTIVE. No obligations apply until January 1, 2028. When operative: applies to frontier AI developers with $500M+ annual revenue; requires annual third-party safety audits, catastrophic-risk framework publication, incident reporting within 72 hours, and whistleblower protections. Source: Capitol News Illinois (Tier 2). Primary source not confirmed.</td></tr><tr><td>Rhode Island</td><td><a href="https://aiweekly.co/alerts/rhode-island-signs-three-ai-laws-covering-mental-health-chatbots" target="_blank" rel="noopener noreferrer">AI chatbot safety, therapy chatbot ban, and AI scribe disclosure laws</a></td><td>Signed June 22, 2026</td><td>Chatbot operators must detect suicidal ideation and route users to crisis services, with annual reporting beginning July 1, 2027. AI therapy and psychotherapy services are banned without licensed professional supervision. Healthcare providers must notify patients of AI use in clinical documentation and review AI-generated records for accuracy.</td></tr><tr><td>Hawaii</td><td><a href="https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2137_CD1_.pdf" target="_blank" rel="noopener noreferrer">HB 2137, deepfake and synthetic performer advertising law</a></td><td>Signed July 16, 2026</td><td>Prohibits knowingly publishing a nonconsensual realistic AI-generated imitation of a person when used in advertising or to commit fraud, defamation, harassment, or other unlawful conduct, and requires conspicuous disclosure of a synthetic performer in commercial advertising when the advertiser has actual knowledge. Damages reach $25,000 per advertisement, with estate rights for up to 10 years after death. Creative and trafficking review for Hawaii-facing ads should include a synthetic performer disclosure check.</td></tr><tr><td>Hawaii</td><td><a href="https://www.transparencycoalition.ai/news/ai-legislative-update-july17-2026" target="_blank" rel="noopener noreferrer">SB 3001, conversational AI disclosure and minor safety law</a></td><td>Signed July 16, 2026</td><td>Requires conversational AI services to disclose that a user is interacting with artificial intelligence, with repeated disclosures for services aimed at minors, and prohibits AI from impersonating licensed mental health professionals or using features that increase emotional dependence in minors. Enforceable as an unfair or deceptive practice, with penalties up to $1,000 per violation and a $1 million cap per operator.</td></tr><tr><td>New Jersey</td><td><a href="https://njbiz.com/fair-act-algorithmic-rent-pricing-nj/" target="_blank" rel="noopener noreferrer">FAIR Act, ban on algorithmic rent-setting software (A3497/S451)</a></td><td>Signed July 20, 2026</td><td>Prohibits landlords from using algorithmic pricing systems that rely on competitors' nonpublic rent and vacancy data to coordinate rental prices or occupancy levels. New Jersey is the fourth state to restrict rent-setting algorithms. Direct advertising relevance is limited, but it adds to the state baseline of constraints on AI-driven and algorithmic decision systems.</td></tr></tbody></table></div></div>
     </details>
   </section>
 
@@ -645,9 +683,51 @@ a.version-item:hover {
     </details>
   </section>
 
+  <section class="section" id="do-now">
+    <h2>What do I need to do?</h2>
+    <p class="lead">Scenario-based guidance for common Q-S situations. These are entry points, not approval decisions. Route the question to the right owner and flag early rather than late.</p>
+    <div class="columns-2">
+      <div class="card">
+        <div class="kicker">Scenario</div>
+        <h3>AI-generated or synthetic person in advertising</h3>
+        <p>If the work uses a computer-generated person who is entirely fictional and does not resemble a real individual, the primary concern is FTC deceptive-practices authority over false impressions. No current law requires disclosure that a fictitious human model is AI-generated, but claims made by or attributed to that figure still carry the standard truth-in-advertising burden.</p>
+        <p>If there is any resemblance to a real person, route to Business Affairs for a likeness and publicity rights review before production proceeds.</p>
+        <p><strong>Route:</strong> Legal for claim review. Business Affairs if any real person is implicated.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Scenario</div>
+        <h3>Cloning or synthesizing a real person's voice or likeness</h3>
+        <p>California AB 2602 (living performers) and AB 1836 (deceased personalities) apply now if the individual has an entertainment industry connection. The NO FAKES Act would extend a similar right federally if enacted. New York requires performer consent and disclosure for synthetic performers in covered commercial advertising.</p>
+        <p>This scenario requires clearance before production regardless of how realistic the output appears. Do not proceed without confirmed consent documentation.</p>
+        <p><strong>Route:</strong> Business Affairs for consent and rights clearance. Legal for jurisdiction-specific disclosure requirements.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Scenario</div>
+        <h3>Generative AI in creative production</h3>
+        <p>If AI tools are used to generate visual or audio content, check whether the tools used meet California SB 942 provenance requirements (operative date January 1, 2026, per official statute, though dates warrant verification). If the output enters a commercial product, the truth-in-advertising baseline applies to any factual claim in or associated with the output.</p>
+        <p>Training data sourcing for tools is a vendor diligence question, not a campaign-level disclosure obligation under current law, though AB 412 (currently stalled) would change this if enacted.</p>
+        <p><strong>Route:</strong> Procurement and AI governance for tool review. Legal if output contains product claims.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Scenario</div>
+        <h3>Campaign runs across multiple states</h3>
+        <p>State obligations are not uniform. California, New York, and Texas are active jurisdictions with distinct requirements. A campaign that runs in all three may face different disclosure, consent, and platform-notification obligations depending on the content and medium.</p>
+        <p>Multi-state campaigns with synthetic performers or AI-generated voices should be reviewed for each target jurisdiction before trafficking, not after the buy is placed.</p>
+        <p><strong>Route:</strong> Legal for jurisdiction mapping. Business Affairs for consent documentation by state.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">Scenario</div>
+        <h3>Political or election-related creative</h3>
+        <p>Political advertising is a separate compliance lane. Several states require disclosure that AI was used in political advertising, and some restrict synthetic depictions of candidates. These obligations apply regardless of whether the content meets the federal definition of "political advertising."</p>
+        <p>Treat election-adjacent content as political for review purposes if there is any doubt. The cost of a late escalation in a political context is substantially higher than the cost of an unnecessary review.</p>
+        <p><strong>Route:</strong> Legal for political-content review before production. Escalate immediately if a real candidate's voice or likeness is used in any form.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="routing">
     <h2>Q-S routing guide</h2>
-    <p class="lead">Each compliance area has a defined internal owner. Issues must be routed accordingly.</p>
+    <p class="lead">Each area below identifies who at Q-S should be engaged when that issue arises. This guide answers "who should be in the loop" rather than "who has final approval authority." Route early and loop in the right owner before production, not after.</p>
     <div class="grid">
       <div class="card">
         <h3>Legal and compliance</h3>
@@ -655,6 +735,7 @@ a.version-item:hover {
           <li>Deceptive claims, fake endorsements, and synthetic spokesperson risk</li>
           <li>New York synthetic performer disclosure triggers</li>
           <li>Political-content review and market-specific escalation</li>
+          <li>Jurisdiction-specific analysis when a campaign runs in multiple states with distinct obligations</li>
         </ul>
       </div>
       <div class="card">
@@ -663,6 +744,7 @@ a.version-item:hover {
           <li>Digital replica contract language</li>
           <li>Voice and likeness permissions</li>
           <li>Deceased personality use and rights clearance</li>
+          <li>Consent documentation for state-specific performer protections</li>
         </ul>
       </div>
       <div class="card">
@@ -671,6 +753,7 @@ a.version-item:hover {
           <li>Campaign disclosure execution where required</li>
           <li>Trafficking checks for New York-facing ads</li>
           <li>Escalation when a concept uses synthetic performers or cloned voices</li>
+          <li>Flagging when a real person's likeness appears in AI-assisted output, whether intentional or incidental</li>
         </ul>
       </div>
       <div class="card">
@@ -679,6 +762,7 @@ a.version-item:hover {
           <li>Tool review against provider-side duties and provenance capabilities</li>
           <li>Vendor diligence for training-data and rights claims</li>
           <li>Platform and moderation workflows where Q-S owns the surface</li>
+          <li>Review of AI tool outputs for provenance metadata compliance under California SB 942</li>
         </ul>
       </div>
     </div>
