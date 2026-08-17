@@ -39,6 +39,27 @@ These rules govern how you treat sources. They apply in every step below.
 
 ---
 
+## CLAIM-LEVEL VALIDATION
+
+Linking to a primary source is not enough. You must determine whether the actual claim displayed on the site is supported by the cited source.
+
+For each legal record you add or update, verify the following fields against the official source:
+- Legal status (in force, enacted not yet effective, proposed)
+- Operative or effective date (not signing date unless operative immediately)
+- Regulated party (who must comply — AI provider, advertiser, platform, employer, etc.)
+- Covered content (what type of content or conduct is regulated)
+- Disclosure obligation (is there a disclosure requirement, and to whom)
+- Consent obligation (is there a consent requirement, and from whom)
+- Whether the law covers fictional AI-generated performers, identifiable real individuals, or both — these are legally distinct concepts and must not be conflated
+- Penalty (if stated in the official source)
+- Commercial versus political scope
+
+If one field cannot be verified, that uncertainty must attach to that specific field. Confidence in one part of a law does not automatically validate every other statement about that law.
+
+**Do not characterize a law based on an earlier bill version.** When a bill becomes enacted, locate the final enrolled, engrossed, chaptered, or otherwise authoritative enacted version. Requirements removed from a bill before final enactment must not appear in the enacted-law summary. Do not assume that because a provision appeared in an introduced or committee-amended version it survived into the final law.
+
+---
+
 ## ENACTED vs. EFFECTIVE DISTINCTION
 
 These are different legal concepts. Never conflate them.
@@ -121,9 +142,17 @@ Only report confirmed findings. Each finding must have a primary source URL wher
 
 ## STEP 3: Decide whether to proceed
 
-If you found fewer than 2 confirmed significant developments since the cutoff date, output a brief summary of what you searched and found, then stop without making any file changes.
+Continue to Step 4 if you found at least one of the following since the cutoff date:
 
-If you found 2 or more significant developments, continue to Step 4.
+- A law newly signed or newly in force
+- A bill reaching a significant procedural milestone (committee vote, floor vote, enactment)
+- A regulatory action finalized or substantially advanced
+- A court decision materially affecting a tracked item
+- A correction to an existing record where a verified primary source now resolves a date or fact that was previously NEEDS REVIEW or SECONDARY SOURCE
+
+A single material development is sufficient to justify an update. Do not require multiple developments merely to justify proceeding.
+
+If no material development exists, output a brief summary of what you searched and found, then stop without making any file changes.
 
 ---
 
@@ -149,7 +178,13 @@ If you found 2 or more significant developments, continue to Step 4.
 
 ### What's new section
 
-Update the lead paragraph date references. Replace ALL existing What's New cards with 6 new cards based on your research findings. The grid must keep the attribute `style="grid-template-columns: repeat(3, 1fr);"`.
+Update the lead paragraph date references. Replace ALL existing What's New cards. The grid must keep the attribute `style="grid-template-columns: repeat(3, 1fr);"`.
+
+The number of new cards must reflect actual significance:
+- Use as few as 1 card when only one material development exists.
+- Use multiple cards when multiple developments are material.
+- Do not pad the section to reach a target count.
+- Do not include minor procedural activity merely to fill space.
 
 Each card must follow this structure:
 ```html
@@ -196,6 +231,30 @@ If any new laws have been signed with a future operative date, add them to the "
 
 If any tracked item has advanced, update the relevant card's Status line and Monitor line, and the corresponding table row. If a bill has become law, move it to the appropriate "In force now" or "Enacted, not yet effective" subsection and remove it from the federal watchlist. If a new bill warrants tracking, add a card and table row following the existing format.
 
+**Current and predecessor bill tracking:** When a bill is reintroduced in a new session or under a new number, the current active version is the one to track for monitoring purposes. The predecessor bill may remain in historical archives but must not be used as the active reference for current legal status. Where relevant, note the predecessor bill number in the current-version card or table row so the relationship is clear.
+
+### Cross-section consistency check
+
+Before finalizing any update, verify that each law or bill appearing in multiple sections carries consistent core facts. At minimum, check:
+
+- Bill number (same number cited in What's New, the tracker cards, the tables, and Q-S guidance)
+- Chamber (if a bill is in the Assembly, every section must say Assembly, not Senate)
+- Status (a bill cannot await a Senate vote in one section and an Assembly vote in another)
+- Operative or effective date (the same date in every section)
+- Verification status (if a card is marked SECONDARY SOURCE, the table row must not imply otherwise)
+
+If any field conflicts between sections, resolve to the primary-source-verified value before publishing.
+
+### Operational guidance validation
+
+If a legal record changes in a way that affects the legal basis for Q-S guidance, find every scenario card, routing note, and Q-S impact statement derived from that record and review it for consistency. Examples:
+
+- If a law changes scope (for example, from covering fictional synthetic performers to covering only identifiable real individuals, or vice versa), the related operational guidance must also change.
+- If a law's operative date changes, guidance referencing the old date must be corrected.
+- If a bill fails enactment, any guidance framing it as imminent must be updated.
+
+Do not fix the legal tracker while leaving derived business guidance based on the old interpretation.
+
 ---
 
 ## STEP 6: Commit and push
@@ -212,3 +271,38 @@ git push -u origin main
 ```
 
 If the push fails due to a network error, wait 5 seconds and retry. Retry up to 3 times. If it fails after 3 attempts, output the error and stop.
+
+---
+
+## PERIODIC FULL-RECORD VALIDATION
+
+This is a separate process from the weekly change scan. Run it approximately monthly, or whenever a significant legal correction is discovered that suggests existing records may also be unreliable.
+
+The weekly change scan looks for new developments since the last update. This process reopens existing current-law records even when nothing new has happened, to verify the factual claims already on the site against current primary authority.
+
+**Priority order for validation:**
+
+1. All "In force now" items
+2. All "Enacted, not yet effective" items
+3. Any item marked NEEDS REVIEW
+4. Federal pending proposals with Senate or House committee advancement
+5. State proposals with direct commercial advertising relevance
+
+**For each record reviewed:**
+
+1. Re-read the official primary source (official legislature URL, Federal Register entry, official agency page, enrolled bill text).
+2. Compare the displayed claims against the source: operative date, regulated party, covered content, disclosure vs. consent obligation, penalties, commercial scope.
+3. If the source supports all displayed claims: update the Last Verified date.
+4. If the source conflicts with a displayed claim: correct the claim and note the correction in the card's source-meta line.
+5. If the source cannot be confirmed: add or retain the NEEDS REVIEW badge with an explanation.
+
+**Do not update "Last Verified" unless the source was actually re-read and the displayed claims were checked.** Updating the date without review defeats the purpose of the timestamp.
+
+**Common error types to specifically check during full validation:**
+- Disclosure laws incorrectly characterized as consent laws, or vice versa
+- Laws covering identifiable real individuals incorrectly described as covering fictional AI-generated performers, or vice versa
+- Operative dates based on an earlier bill version that were subsequently amended
+- Bills cited at an earlier version when the final enacted text differs materially
+- Stale predecessor bill numbers used in current-state tracking
+
+When a full-record validation pass is complete, commit with a message noting the validation scope, for example: "Periodic validation: re-verified In Force Now records against primary sources"
