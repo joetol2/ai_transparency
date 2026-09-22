@@ -178,7 +178,7 @@ If no material development exists, output a brief summary of what you searched a
 
 ### What's new section
 
-Update the lead paragraph date references. Replace ALL existing What's New cards. The grid must keep the attribute `style="grid-template-columns: repeat(3, 1fr);"`.
+Update the lead paragraph date references to match {{TODAY}} and the previous snapshot date. Keep the lead paragraph to 1-2 sentences only. Replace ALL existing What's New cards. The grid `style` attribute must be set to match the number of cards: use `grid-template-columns: 1fr` for 1 card, `grid-template-columns: repeat(2, 1fr)` for 2 cards, and `grid-template-columns: repeat(3, 1fr)` for 3 or more cards. A single card must span the full page width.
 
 The number of new cards must reflect actual significance:
 - Use as few as 1 card when only one material development exists.
