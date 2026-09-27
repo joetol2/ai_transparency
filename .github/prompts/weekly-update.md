@@ -165,7 +165,7 @@ If no material development exists, output a brief summary of what you searched a
    - Change the version dropdown button text from `Last updated: [old date]` to `Archived: [old date]`
    - Change `<span class="version-item current">[old date] - current</span>` to `<span class="version-item current">[old date]</span>`
    - Add `<a class="version-item" href="../index.html">{{TODAY}}</a>` as the first item inside the version menu div (before the current span)
-4. For each existing HTML file in the `archive/` folder, open it and update its version menu: add `<a class="version-item" href="../index.html">{{TODAY}}</a>` as the first item in the version menu div, if it is not already there. Also update the existing item that currently links to `../index.html` to instead link to the newly created archive file for the old date.
+4. For each existing HTML file in the `archive/` folder, open it and update its version menu: add `<a class="version-item" href="../index.html">{{TODAY}}</a>` as the first item in the version menu div, if it is not already there. Also update the existing item that currently links to `../index.html` to instead link to the newly created archive file for the old date. **Path rule for archive-to-archive links:** When linking from one archive file to another, use the bare filename only (e.g., `href="sep-14-2026.html"`). Do not include the `archive/` directory prefix. The `archive/` prefix belongs only in `index.html` links to archive files, because `index.html` sits one level above the archive directory. Archive files are siblings and must link to each other with bare filenames.
 
 ---
 
