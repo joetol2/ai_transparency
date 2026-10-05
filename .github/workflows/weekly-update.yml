@@ -57,4 +57,4 @@ jobs:
           RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           curl -s -X POST "$NOTIFY_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
-            -d "{\"to\":\"joet@quigleysimpson.com\",\"subject\":\"AI Governance Hub: weekly update ${STATUS}\",\"body\":\"The weekly update workflow completed with status: ${STATUS}.\\n\\nRun details: ${RUN_URL}\"}"
+            -d "{\"to\":\"joetol2@gmail.com\",\"subject\":\"AI Governance Hub: weekly update ${STATUS}\",\"body\":\"The weekly update workflow completed with status: ${STATUS}.\\n\\nRun details: ${RUN_URL}\"}"
