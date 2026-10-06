@@ -52,9 +52,58 @@ jobs:
         if: always()
         env:
           NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+          JOB_STATUS: ${{ job.status }}
+          RUN_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         run: |
-          STATUS="${{ job.status }}"
-          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          curl -s -X POST "$NOTIFY_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
-            -d "{\"to\":\"joetol2@gmail.com\",\"subject\":\"AI Governance Hub: weekly update ${STATUS}\",\"body\":\"The weekly update workflow completed with status: ${STATUS}.\\n\\nRun details: ${RUN_URL}\"}"
+          python3 << 'PYEOF'
+          import re, json, os
+          from datetime import datetime, timezone
+          from urllib.request import Request, urlopen
+
+          webhook_url = os.environ['NOTIFY_WEBHOOK_URL']
+          status = os.environ['JOB_STATUS']
+          run_url = os.environ['RUN_URL']
+          today = datetime.now(timezone.utc).strftime('%B %-d, %Y')
+
+          news_lines = []
+          if status == 'success':
+              try:
+                  html = open('index.html').read()
+
+                  lead_match = re.search(r'<p class=["\']lead["\']>(.*?)</p>', html, re.DOTALL)
+                  lead = re.sub(r'<[^>]+>', '', lead_match.group(1)).strip() if lead_match else ''
+                  if lead:
+                      news_lines.append(lead)
+                      news_lines.append('')
+
+                  card_blocks = re.findall(r'<div class=["\']card["\']>([\s\S]*?)</div>\s*(?=<div class=["\']card["\']>|</div>)', html)
+                  items = []
+                  for c in card_blocks[:6]:
+                      badge = re.search(r'<span class=["\']badge[^"\']*["\']>([^<]+)</span>', c)
+                      h3 = re.search(r'<h3[^>]*>([\s\S]*?)</h3>', c)
+                      if not h3:
+                          continue
+                      badge_t = badge.group(1).strip() if badge else ''
+                      h3_t = re.sub(r'<[^>]+>', '', h3.group(1)).strip()
+                      ps = re.findall(r'<p(?!\s+class=["\']small["\'])(?:[^>]*)?>([\s\S]*?)</p>', c)
+                      body_t = ' '.join(re.sub(r'<[^>]+>', '', p).strip() for p in ps if re.sub(r'<[^>]+>', '', p).strip())
+                      items.append(f'[{badge_t}] {h3_t}\n{body_t}')
+
+                  news_lines.extend(items)
+              except Exception as e:
+                  news_lines.append(f'(Could not extract news content: {e})')
+
+          if news_lines:
+              body = f"Weekly AI Governance Hub update completed on {today}.\n\nWHAT'S NEW\n{'='*40}\n\n" + '\n\n'.join(news_lines) + f"\n\n{'='*40}\nView the full hub: https://joetol2.github.io/ai_transparency/\nRun details: {run_url}"
+          else:
+              body = f"AI Governance Hub weekly workflow completed with status: {status}.\n\nRun details: {run_url}"
+
+          subject = f'AI Governance Hub update: {today} ({status})'
+          payload = json.dumps({'to': 'joetol2@gmail.com', 'subject': subject, 'body': body}).encode()
+          req = Request(webhook_url, data=payload, headers={'Content-Type': 'application/json'}, method='POST')
+          try:
+              resp = urlopen(req)
+              print(f'Notification sent: {resp.read().decode()}')
+          except Exception as e:
+              print(f'Notification failed: {e}')
+          PYEOF
